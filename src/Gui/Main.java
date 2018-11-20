@@ -25,7 +25,7 @@ public class Main extends Application {
         String css = Main.class.getResource("main.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("Floyd Warshall Simulation");
+        stage.setTitle("Risk Game");
         stage.setResizable(false);
         stage.show();
     }

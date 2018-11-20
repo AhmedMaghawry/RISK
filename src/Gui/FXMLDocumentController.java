@@ -59,8 +59,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
-        AnchorPane temp = null;
-
+        AnchorPane temp = FXMLLoader.load(getClass().getResource("GraphViewer.fxml"));
         rootPane.getChildren().setAll(temp);
     }
     @FXML
