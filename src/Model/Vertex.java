@@ -6,10 +6,10 @@ public class Vertex {
 	  public Integer owner ;
 	  public Integer armysize;
 	  public Integer partitionNumber;
-	  public Integer index;
+	  public String index;
 	  
 	
-	public Vertex(Integer owner, Integer armysize, Integer index, Integer partitionNumber ) {
+	public Vertex(Integer owner, Integer armysize, String index, Integer partitionNumber ) {
 		
 		// TODO Auto-generated constructor stub
 		this.owner = owner;

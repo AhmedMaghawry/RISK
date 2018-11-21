@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gui;
+package Controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +19,10 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
         Scene scene = new Scene(root);
  
-        String css = Main.class.getResource("main.css").toExternalForm();
+        String css = Main.class.getResource("/View/main.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setTitle("Risk Game");

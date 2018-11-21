@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gui;
+package Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -22,6 +22,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -31,12 +32,15 @@ import java.util.ResourceBundle;
 
 
 public class FXMLDocumentController implements Initializable {
-    
+
+    private InputReader reader ;
     public static int value = 1;
+
+    public  static  int vertexNum ;
     
+    public static ArrayList <String>vertex = new ArrayList<>();
 
-
-
+    public  File selectedFile;
     @FXML
     private JFXButton nextButton;
 
@@ -59,18 +63,21 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
-        AnchorPane temp = FXMLLoader.load(getClass().getResource("GraphViewer.fxml"));
+        AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
         rootPane.getChildren().setAll(temp);
     }
     @FXML
     private void FileButtonAction(ActionEvent e) throws IOException{
         //  value = vertex.getValue();
         AnchorPane temp = null;
-        File selectedFile = fileChooser.showOpenDialog(null);
+         selectedFile = fileChooser.showOpenDialog(null);
             if (selectedFile != null) {
             System.out.println("yes!!!!");
             FileButton.setText(selectedFile.getName());
-        }
+             reader = new InputReader(selectedFile);
+             reader.readInput();
+
+            }
     else {
                 System.out.println("NO!!!!");
         }
@@ -78,7 +85,6 @@ public class FXMLDocumentController implements Initializable {
 
 
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
