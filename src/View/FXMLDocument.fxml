@@ -39,7 +39,7 @@
            <Image url="@icons/player2.png" />
        </image>
    </ImageView>
-      <JFXComboBox fx:id="Agent1" focusColor="BLACK" layoutX="119.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE;" unFocusColor="BLACK" />
+      <JFXComboBox fx:id="Agent1"  layoutX="119.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" />
       <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="523.0" layoutY="562.0" onAction="#nextButtonAction" prefHeight="78.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" text="Play" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -64,6 +64,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="Agent2" focusColor="BLACK" layoutX="1001.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE;" unFocusColor="BLACK" />
+      <JFXComboBox fx:id="Agent2" focusColor="BLACK" layoutX="1001.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;"  />
    </children>
 </AnchorPane>
