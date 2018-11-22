@@ -14,7 +14,6 @@ public abstract class Agent {
     private AgentState state;
     private int numberOfArmies;
     private List<Country> countriesOwned;
-
     public Agent(AgentType agentType) {
         this.type = agentType;
         state = AgentState.Alive;
@@ -23,6 +22,8 @@ public abstract class Agent {
         numberOfArmies = 0;
         countriesOwned = new ArrayList<>();
     }
+    public static Agent player1 ;
+    public  static Agent player2;
 
     public abstract boolean attack();
     public abstract boolean move();
@@ -32,6 +33,9 @@ public abstract class Agent {
         this.bounceValue += bounceValue;
     }
 
+    public void setType(AgentType type){
+        this.type = type;
+    }
     public void decBounce(int bounceValue) {
         this.bounceValue -= bounceValue;
     }

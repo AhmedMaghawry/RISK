@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Agent;
+import Model.AgentType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -34,7 +36,6 @@ import java.util.ResourceBundle;
 
 public class FXMLDocumentController implements Initializable {
 
-    private InputReader reader ;
     public static int value = 1;
 
     public  static  int vertexNum ;
@@ -65,6 +66,12 @@ public class FXMLDocumentController implements Initializable {
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
         if (selectedFile != null) {
+            String agent1Type = Agent1.getSelectionModel().getSelectedItem().toString();
+            System.out.println(agent1Type);
+            String agent2Type = Agent2.getSelectionModel().getSelectedItem().toString();
+            System.out.println(agent2Type);
+            Agent.player1.setType( AgentType.valueOf(agent1Type));
+            Agent.player2.setType( AgentType.valueOf(agent2Type));
             AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
             rootPane.getChildren().setAll(temp);
         }else {
@@ -83,8 +90,8 @@ public class FXMLDocumentController implements Initializable {
             if (selectedFile != null) {
             System.out.println("yes!!!!");
             FileButton.setText(selectedFile.getName());
-             reader = new InputReader(selectedFile);
-             reader.readInput();
+             InputReader.getIntance().addFile(selectedFile);
+             InputReader.getIntance().readInput();
             }
     else {
                 System.out.println("NO!!!!");
@@ -96,13 +103,14 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list = FXCollections.observableArrayList("Human","Passive","Aggressive","Pacifist","Intelligent");
-        Agent1.setItems(list);
-        Agent2.setItems(list);
+        ObservableList<String> list1 = FXCollections.observableArrayList(    "Human", "Completely_Passive", "Aggressive", "Nearly_Pacifist", "Greedy", "A_Search", "A_Real");
+        ObservableList<String> list2 = FXCollections.observableArrayList("Completely_Passive", "Aggressive", "Nearly_Pacifist", "Greedy", "A_Search", "A_Real");
+        Agent1.setItems(list1);
+        Agent2.setItems(list2);
 
         //  inputType.selectToggle(matrixInput);
         Agent1.setValue("Human");
-        Agent2.setValue("Passive");
+        Agent2.setValue("Completely_Passive");
 
     }
     

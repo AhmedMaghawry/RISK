@@ -5,10 +5,11 @@
  */
 package Controller;
 
+import Model.Agent;
+import Model.Continent;
+import Model.Country;
 import Model.Map;
 import com.jfoenix.controls.JFXButton;
-import guru.nidi.graphviz.engine.Graphviz;
-import guru.nidi.graphviz.model.MutableGraph;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,14 +21,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-
+import java.util.Collections;
+import java.awt.*;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import static guru.nidi.graphviz.model.Factory.mutGraph;
-import static guru.nidi.graphviz.model.Factory.mutNode;
+import java.util.*;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * FXML Controller class
@@ -36,16 +37,19 @@ import static guru.nidi.graphviz.model.Factory.mutNode;
  */
 public class GraphViewerController implements Initializable {
 
-    public static ArrayList<String> vertex = FXMLDocumentController.vertex;
-    public static double[][][] sequence;
-    private double seqGen[][];
+    private static ArrayList<String> vertex = FXMLDocumentController.vertex;
+    private List<Continent> allContinents= new ArrayList<>();
+    public static Integer[][][] sequence;
+    private ArrayList<ArrayList<Integer>> continentsBordersX = new ArrayList<>();
+    private ArrayList<ArrayList<Integer>> continentsBordersY= new ArrayList<>();
+
     public static int step=4;
     private JFXButton[] btn = new JFXButton[7];
 //    private static String[] colors = {"#4A148C" , "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
-    String color ="#4A148C";
+    String color1 ="#4A148C";
+    String color2=  "#3090C7";
     public static boolean[] selection = new boolean[7];
     private boolean newInstance = false;
-
     @FXML
     private AnchorPane pane;
 
@@ -70,112 +74,60 @@ public class GraphViewerController implements Initializable {
         pane.getChildren().setAll(temp);
     }
 
-   
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
 
-        pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println(event.getSceneX());
-                System.out.println(event.getSceneY());
-            }
-        });
+//        pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                System.out.println(event.getSceneX());
+//                System.out.println(event.getSceneY());
+//            }
+//        });
 
         final int nodeRadius = 20;
-// North America partion 1
-//        layoutX = {47.0,318.0};
-//        layoutY = {391.0,155.0};
+        createBorders();
 
-        // Asia partitoin 2
-//        layoutX = {702.0,1038.0};
-//        layoutY = {116.0,326.0};
-        int[] layoutX = {415, 267, 576, 267, 576, 184, 646};
-        int[] layoutY = {221, 362, 362, 80, 80, 221, 221};
         Line[][] newEdge = new Line[7][7];
         boolean[][] flag = new boolean[7][7];
 
-        for (int i = 0; i < 7; i++) {
-            btn[i] = new JFXButton();
-
-        }
-        flag[0][0]=true;
-        flag[1][0]=true;
-        flag[0][2]=true;
-        flag[0][3]=true;
+         allContinents =  Map.getIntance().getContinents();
 
 
-        //Generating Vertices
-        for (int i = 0; i < step; i++) {
-            btn[i].setLayoutX(layoutX[i]);
-            btn[i].setLayoutY(layoutY[i]);
-            btn[i].setPrefHeight(40);
-            btn[i].setPrefWidth(40);
-            btn[i].setTextFill(Color.WHITE);
-            btn[i].setStyle("-fx-background-color: " + color + "; -fx-background-radius: 35 35 35 35");
-
-            btn[i].setText("v1");
-            pane.getChildren().add(btn[i]);
-
-        }
-
-        //Generating Edges
-
-        for (int i = 0; i < step; i++) {
-            for (int j = 0; j < step; j++) {
-                //Coordinate of starting point
-                double x1 = btn[i].getLayoutX() + nodeRadius;
-                double y1 = btn[i].getLayoutY() + nodeRadius;
-
-                //Coordinate of ending point
-                double x2 = btn[j].getLayoutX() + nodeRadius;
-                double y2 = btn[j].getLayoutY() + nodeRadius;
-
-                if (!flag[i][j]) {
-                    newEdge[i][j] = new Line(x1, y1, x2, y2);
-                    double mx = (x1 + x2) / 2;
-                    double my = (y1 + y2) / 2;
-                    double dnX = y2 - y1;
-                    double dnY = x1 - x2;
-                    // normalize ortogonal
-                    double length = Math.hypot(dnX, dnY);
-                    dnX /= length;
-                    dnY /= length;
-                    double factor = 20;
-                    Path path = new Path(new MoveTo(x1, y1), new QuadCurveTo(mx + factor * dnX, my + factor * dnY, x2, y2));
-                    pane.getChildren().add(path);
 
 
-                }
-            }
-        }
+
+
+
         btn[0].setOnAction((event) -> {
-            KopaShamsuKopa(btn[0], 0);
+           changeButtonClicked(btn[0], 0);
         });
 
         btn[1].setOnAction((event) -> {
-            KopaShamsuKopa(btn[1], 1);
+           changeButtonClicked(btn[1], 1);
         });
 
         btn[2].setOnAction((event) -> {
-            KopaShamsuKopa(btn[2], 2);
+           changeButtonClicked(btn[2], 2);
         });
 
         btn[3].setOnAction((event) -> {
-            KopaShamsuKopa(btn[3], 3);
+           changeButtonClicked(btn[3], 3);
         });
 
         btn[4].setOnAction((event) -> {
-            KopaShamsuKopa(btn[4], 4);
+           changeButtonClicked(btn[4], 4);
         });
 
         btn[5].setOnAction((event) -> {
-            KopaShamsuKopa(btn[5], 5);
+           changeButtonClicked(btn[5], 5);
         });
 
         btn[6].setOnAction((event) -> {
-            KopaShamsuKopa(btn[6], 6);
+           changeButtonClicked(btn[6], 6);
         });
 
     }
@@ -184,9 +136,9 @@ public class GraphViewerController implements Initializable {
     private static int first;
     private static JFXButton temp;
 
-    private void KopaShamsuKopa(JFXButton btnx, int i) {
+    private void changeButtonClicked(JFXButton btnx, int i) {
         if (selection[i]) {
-            btnx.setStyle("-fx-background-color:" + color + "; -fx-background-radius: 35 35 35 35");
+            btnx.setStyle("-fx-background-radius: 35 35 35 35");
             selection[i] = false;
             --selectionCtr;
         } else {
@@ -194,10 +146,10 @@ public class GraphViewerController implements Initializable {
                 if (newInstance) {
                     for (int t = 0; t < step; t++) {
                         newInstance = false;
-                        btn[t].setStyle("-fx-background-color:" + color + "; -fx-background-radius: 35 35 35 35");;
+                        btn[t].setStyle("-fx-background-radius: 35 35 35 35");;
                     }
                 }
-                btnx.setStyle("-fx-background-color:" + color + "; -fx-border-color: #00BFA5; -fx-border-width: 3");
+                btnx.setStyle("-fx-border-width: 3");
                 selection[i] = true;
                 first = i;
                 temp = btnx;
@@ -218,8 +170,101 @@ public class GraphViewerController implements Initializable {
 
     public void nextTurnButtonAction(ActionEvent actionEvent) {
     }
+    private void generateVertices(){
+        //Generating Vertices
+        for (int i = 0; i < allContinents.size(); i++) {
+            for (int j = 0; j < allContinents.get(i).getCountries().size(); j++) {
+                btn[j] = new JFXButton();
+                Country node = allContinents.get(i).getCountries().get(j);
+                btn[j].setText(String.valueOf(node.getNumberArmies()));
+                Integer randomNumX = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersX.get(i)),Collections.max(continentsBordersX.get(i)));
+                Integer randomNumY = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersY.get(i)),Collections.max(continentsBordersY.get(i)));
+                btn[i].setLayoutX(randomNumX);
+                btn[i].setLayoutY(randomNumY);
+                btn[i].setPrefHeight(30);
+                btn[i].setPrefWidth(30);
+                btn[i].setTextFill(Color.WHITE);
+                if(node.getOwner() == Agent.player1)
+                    btn[i].setStyle("-fx-background-color: " + color1 + "; -fx-background-radius: 35 35 35 35");
+                else
+                    btn[i].setStyle("-fx-background-color: " + color2 + "; -fx-background-radius: 35 35 35 35");
 
-    //This method will find the shortest path and return it as a string
-    
+            }
+        }
+
+    }
+    private void createBorders (){
+        // North America partion 1
+
+        Integer[] layoutX = new Integer[]{47,318};
+        Integer[] layoutY = new Integer[]{391,155};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+
+        // Asia partitoin 2
+        layoutX = new Integer[]{702,1038};
+        layoutY = new Integer[]{116, 326};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+        // Africa partitoin 3
+        layoutX = new Integer[]{ 645,537};
+        layoutY = new Integer[]{363,510};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+        // South America partion 4
+        layoutX = new Integer[]{375,320};
+        layoutY = new Integer[]{608,445};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+        // Australia partitoin 5
+        layoutX = new Integer[]{ 939,1038};
+        layoutY = new Integer[]{612,543};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+        // europe partitoin 6
+        layoutX = new Integer[]{ 574,655};
+        layoutY = new Integer[]{158,254};
+        continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
+        continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
+
+    }
+
+    public  void generateEdges (){
+        //Generating Edges
+//
+//        for (int i = 0; i < ; i++) {
+//            for (int j = 0; j < step; j++) {
+//                //Coordinate of starting point
+//                Integer x1 = btn[i].getLayoutX() + nodeRadius;
+//                Integer y1 = btn[i].getLayoutY() + nodeRadius;
+//
+//                //Coordinate of ending point
+//                Integer x2 = btn[j].getLayoutX() + nodeRadius;
+//                Integer y2 = btn[j].getLayoutY() + nodeRadius;
+//
+//                if (!flag[i][j]) {
+//                    newEdge[i][j] = new Line(x1, y1, x2, y2);
+//                    Integer mx = (x1 + x2) / 2;
+//                    Integer my = (y1 + y2) / 2;
+//                    Integer dnX = y2 - y1;
+//                    Integer dnY = x1 - x2;
+//                    // normalize ortogonal
+//                    Integer length = Math.hypot(dnX, dnY);
+//                    dnX /= length;
+//                    dnY /= length;
+//                    Integer factor = 20;
+//                    Path path = new Path(new MoveTo(x1, y1), new QuadCurveTo(mx + factor * dnX, my + factor * dnY, x2, y2));
+//                    pane.getChildren().add(path);
+//
+//
+//                }
+//            }
+//        }
+    }
 
 }

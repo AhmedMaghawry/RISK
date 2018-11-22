@@ -20,14 +20,22 @@ public class InputReader {
    private String[]  player1Line;
    private String[]  player2Line;
    private ArrayList<String> countriesArmyLines = new ArrayList<>();
-   public   List<Country> player1Countries= new ArrayList<>();
-   public   List<Country> player2Countries = new ArrayList<>();
    private  int i=0,j=0,k=0;
-    public InputReader(File input) {
-        this.input = input;
+
+   private static InputReader reader = null;
+
+    public static  InputReader getIntance(){
+        if (reader == null)
+            reader = new InputReader();
+        return reader;
+    }
+    public InputReader() {
+        this.input = null;
     }
 
-
+    public void addFile(File input) {
+        this.input = input;
+    }
     public void readInput(){
         try (BufferedReader br = new BufferedReader(new FileReader(input))) {
 
@@ -76,12 +84,14 @@ public class InputReader {
                 for (i = 1; i < player1Line.length; i++){
                     int index = Integer.parseInt(player1Line[i])-1;
                   //  System.out.println("index "+index);
-                    player1Countries.add(vertices.get(index));
-                }
+                    vertices.get(index).setOwner(Agent.player1);
+                    Agent.player1.addCountry(vertices.get(index));
+            }
                for (i = 1; i < player2Line.length; i++){
                 int index = Integer.parseInt(player2Line[i])-1;
                 //  System.out.println("index "+index);
-                 player2Countries.add(vertices.get(index));
+                   vertices.get(index).setOwner(Agent.player2);
+                   Agent.player2.addCountry(vertices.get(index));
               }
             // Read countries armies
 
@@ -107,4 +117,9 @@ public class InputReader {
 
 
     }
+
+    public List<Country> getVertices() {
+        return vertices;
+    }
+
 }
