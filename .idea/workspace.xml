@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="4th commit updated GUI">
-      <change afterPath="$PROJECT_DIR$/src/Model/Agent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/AgentState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/AgentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Continent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Country.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/HumanAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/Risk-Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/Risk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/map_colored1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/player1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/player2.png" afterDir="false" />
+    <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RiskGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RiskGame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/Gui/FXMLDocument.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/Gui/FXMLDocumentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/Gui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/Gui/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/Model/MyVertex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RiskGame/icons/map_colored.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/FXMLDocument.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/FXMLDocument.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/FXMLDocumentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FXMLDocumentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/map_colored.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,18 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FXMLDocument.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/FXMLDocument.fxml">
           <provider editor-type-id="text-editor">
@@ -66,7 +30,7 @@
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file leaf-file-name="HumanAgent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HumanAgent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/HumanAgent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -78,7 +42,7 @@
       <file leaf-file-name="FXMLDocumentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
+            <state relative-caret-position="645">
               <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -105,8 +69,17 @@
       <file leaf-file-name="GraphViewerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="15">
               <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/input.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -124,12 +97,8 @@
       <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
         <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
+            <state relative-caret-position="38205">
               <caret line="2547" selection-start-line="2547" selection-end-line="2547" />
-              <folding>
-                <element signature="e#66921#66922#0" expanded="true" />
-                <element signature="e#66966#66967#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -191,6 +160,7 @@
         <option value="$PROJECT_DIR$/src/View/GraphViewer.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/GraphViewerController.java" />
         <option value="$PROJECT_DIR$/src/View/FXMLDocument.fxml" />
+        <option value="$PROJECT_DIR$/input.txt" />
       </list>
     </option>
   </component>
@@ -221,8 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,34 +198,13 @@
               <item name="riskgame" type="b2602c69:ProjectViewProjectNode" />
               <item name="riskgame" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="riskgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="riskgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="riskgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="riskgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="riskgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="riskgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="riskgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="riskgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +324,8 @@
       <workItem from="1542792233183" duration="10352000" />
       <workItem from="1542807506649" duration="1486000" />
       <workItem from="1542815132681" duration="13980000" />
-      <workItem from="1542831651153" duration="7675000" />
+      <workItem from="1542831651153" duration="8559000" />
+      <workItem from="1542881525367" duration="659000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit added graph datastructure">
       <created>1542740926249</created>
@@ -386,11 +334,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542740926249</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="4th commit updated GUI">
+      <created>1542839547576</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542839547577</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61103000" />
+    <option name="totallyTimeSpent" value="62646000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -403,44 +358,44 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-11" width="1311" height="780" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32917318" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Image Layers" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32858273" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32917318" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.18876755" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32917318" />
       <window_info anchor="right" id="Flutter Outline" order="1" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="0" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.29295328" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="9" weight="0.24940617" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.39937598" />
-      <window_info anchor="bottom" id="TODO" order="11" weight="0.32917318" />
-      <window_info anchor="bottom" id="Messages" order="1" weight="0.32917318" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info id="Image Layers" order="1" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32917318" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.18876755" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32917318" />
-      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.2882027" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32917318" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.39937598" />
       <window_info anchor="right" id="Flutter Inspector" order="0" weight="0.3293745" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32917318" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32917318" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="0" />
       <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.18876755" />
       <window_info id="Image Layers" order="1" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.18876755" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32917318" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="9" weight="0.24940617" />
       <window_info anchor="right" id="Flutter Inspector" order="0" weight="0.3293745" />
@@ -453,19 +408,18 @@
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.32917318" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.2882027" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.29295328" />
       <window_info anchor="right" id="Flutter Outline" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32917318" />
+      <window_info anchor="bottom" id="Version Control" order="3" visible="true" weight="0.32917318" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32858273" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32917318" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32917318" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39937598" />
     </layout-to-restore>
   </component>
@@ -495,13 +449,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38940">
-          <caret line="2596" selection-start-line="2596" selection-end-line="2596" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -624,9 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,7 +610,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="195">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -676,12 +620,8 @@
     </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="38205">
           <caret line="2547" selection-start-line="2547" selection-end-line="2547" />
-          <folding>
-            <element signature="e#66921#66922#0" expanded="true" />
-            <element signature="e#66966#66967#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,16 +634,6 @@
     <entry file="file://$PROJECT_DIR$/src/icons/map_colored1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/GraphViewer.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -711,13 +641,6 @@
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/FXMLDocument.fxml">
       <provider editor-type-id="text-editor">
@@ -731,6 +654,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
