@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,5 +82,15 @@ public class Country {
 
     public boolean isAdj(Country country) {
         return adj.contains(country);
+    }
+
+    public List<Pair<Country, Country>> getAvalibleAttacks() {
+        List<Pair<Country, Country>> avalibleAttacks = new ArrayList<>();
+        for (Country c : adj) {
+            if (!c.owner.equals(this.owner) && this.numberArmies - c.numberArmies > 1)
+                avalibleAttacks.add(new Pair<>(this, c));
+
+        }
+        return avalibleAttacks;
     }
 }

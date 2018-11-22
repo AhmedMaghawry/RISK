@@ -40,12 +40,12 @@ public class MainTest {
         player.addCountry(alg);
         eg.addArmies(5);
         alg.addArmies(4);
-        print("The Attack Happen : " + player.attack(eg, alg));
-        print("The Attack Happen : " + player.attack(eg, fr));
-        print("The Attack Happen : " + player.attack(alg, fr));
-        print("The Attack Happen : " + player.attack(alg, fr));
-        print("The Attack Happen : " + player.attack(alg, eng));
-        print("The Attack Happen : " + player.attack(fr, eng));
+        print("The Attack Happen : " + player.attack_for_human(eg, alg));
+        print("The Attack Happen : " + player.attack_for_human(eg, fr));
+        print("The Attack Happen : " + player.attack_for_human(alg, fr));
+        print("The Attack Happen : " + player.attack_for_human(alg, fr));
+        print("The Attack Happen : " + player.attack_for_human(alg, eng));
+        print("The Attack Happen : " + player.attack_for_human(fr, eng));
 
         print("The Attack Finished");
     }
