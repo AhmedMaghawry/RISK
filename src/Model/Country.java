@@ -64,6 +64,8 @@ public class Country {
     }
 
     public boolean isBelongAgent(Agent agent) {
+        if (owner == null)
+            return false;
         return owner.equals(agent);
     }
 

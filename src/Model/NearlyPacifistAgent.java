@@ -10,10 +10,13 @@ public class NearlyPacifistAgent extends Agent {
     public boolean attack() {
         Country to  = getCountriesOwned().get(0).getAdj().get(0);
         Country from  = getCountriesOwned().get(0);
+        int maxdiff = 1;
         for (Country c : getCountriesOwned()) {
             from = c;
             for (Country adj : c.getAdj()) {
-                if (adj.getNumberArmies() < to.getNumberArmies())
+                if (adj.isBelongAgent(this))
+                    continue;
+                else if (from.getNumberArmies() - adj.getNumberArmies() > maxdiff)
                     to = adj;
             }
         }
