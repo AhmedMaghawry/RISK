@@ -1,6 +1,6 @@
 package Model;
 
-import javafx.util.Pair;
+//import javafx.util.Pair;
 
 import java.util.List;
 
@@ -10,28 +10,12 @@ public class HumanAgent extends Agent {
         super(AgentType.Human);
     }
 
-    //Only for Human Agent
-    public boolean attack(List<Pair<Pair<Country, Country>,Integer>> input) {
-        //TODO:Implement
-        return true;
+    public boolean attack_for_human(Country from, Country to) {
+        return attack(from, to);
     }
 
-    //Only for Human Agent
-    public boolean move(List<Pair<Pair<Country, Country>,Integer>> input) {
-        //TODO:Implement
-        return true;
-    }
-
-    //Only for Human Agent
-    public boolean place(List<Pair<Country, Integer>> input) {
-        for (Pair<Country, Integer> x : input) {
-            if (x.getKey().isBelongAgent(this)) {
-                x.getKey().addArmies(x.getValue());
-                addArmies(x.getValue());
-            } else
-                return false;
-        }
-        return true;
+    public boolean place_for_human(Country to) {
+        return place(to);
     }
 
     @Override

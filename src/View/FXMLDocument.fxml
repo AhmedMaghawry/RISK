@@ -15,7 +15,7 @@
    <children>
        <ImageView fitHeight="740.0" fitWidth="1300.0" layoutX="0.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
            <image>
-               <Image url="@../icons/Risk.png" />
+               <Image url="@icons/Risk.png" />
            </image>
        </ImageView>
        <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
@@ -25,18 +25,18 @@
          <children>
             <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
                <image>
-                  <Image url="@../icons/Risk-Logo.png" />
+                  <Image url="@icons/Risk-Logo.png" />
                </image>
             </ImageView>
          </children>
        </StackPane>
        <ImageView fitHeight="211.0" fitWidth="260.0" layoutX="95.0" layoutY="113.0">
            <image>
-               <Image url="@../icons/player1.png" />
+               <Image url="@icons/player1.png" />
            </image>
        </ImageView><ImageView fitHeight="211.0" fitWidth="260.0" layoutX="946.0" layoutY="113.0">
        <image>
-           <Image url="@../icons/player2.png" />
+           <Image url="@icons/player2.png" />
        </image>
    </ImageView>
       <JFXComboBox  fx:id="Agent1" layoutX="119.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" />

@@ -10,55 +10,55 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="pane" maxHeight="740.0" maxWidth="1300.0" prefHeight="740.0" prefWidth="1300.0" style="-fx-background-color: lightBlue;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GraphViewerController">
-   <children>
-      <ImageView fitHeight="740.0" fitWidth="1200.0" layoutX="0.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-98.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="8.0">
-         <image>
-            <Image requestedHeight="740.0" requestedWidth="1200.0" url="@../icons/map_colored1.png" />
-         </image>
-      </ImageView>
-      <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
-         <effect>
-            <DropShadow />
-         </effect>
-         <children>
-            <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
-               <image>
-                  <Image url="@../icons/Risk-Logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </StackPane>
-      <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="1121.0" layoutY="492.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="placeButton" buttonType="RAISED" layoutX="1121.0" layoutY="313.0" onAction="#placeButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Green;" text="Place" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="attackButton" buttonType="RAISED" layoutX="1121.0" layoutY="226.0" onAction="#attackButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Red;" text="Attack" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="nextTurnButton" buttonType="RAISED" layoutX="1121.0" layoutY="401.0" onAction="#nextTurnButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Blue;" text="Next" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-   </children>
+    <children>
+        <ImageView fitHeight="740.0" fitWidth="1200.0" layoutX="0.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-98.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="8.0">
+            <image>
+                <Image requestedHeight="740.0" requestedWidth="1200.0" url="@../icons/map_colored1.png" />
+            </image>
+        </ImageView>
+        <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
+                    <image>
+                        <Image url="@../icons/Risk-Logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </StackPane>
+        <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="1121.0" layoutY="492.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="placeButton" buttonType="RAISED" layoutX="1121.0" layoutY="313.0" onAction="#placeButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Green;" text="Place" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="attackButton" buttonType="RAISED" layoutX="1121.0" layoutY="226.0" onAction="#attackButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Red;" text="Attack" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="nextTurnButton" buttonType="RAISED" layoutX="1121.0" layoutY="401.0" onAction="#nextTurnButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Blue;" text="Next" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+    </children>
 </AnchorPane>
