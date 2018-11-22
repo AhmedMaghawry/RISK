@@ -38,18 +38,23 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GraphViewerController implements Initializable {
 
     private static ArrayList<String> vertex = FXMLDocumentController.vertex;
-    private List<Continent> allContinents= new ArrayList<>();
-    public static Integer[][][] sequence;
     private ArrayList<ArrayList<Integer>> continentsBordersX = new ArrayList<>();
     private ArrayList<ArrayList<Integer>> continentsBordersY= new ArrayList<>();
-
+    private int verticesNum = InputReader.getIntance().getVertices().size();
+    private boolean doeshaveedges [][];
+    private List<Country> adjCountries = new ArrayList<>();
     public static int step=4;
-    private JFXButton[] btn = new JFXButton[7];
+    private JFXButton btn ;
+    private Line[][] newEdge = new Line[verticesNum][verticesNum];
+    public boolean[] selection = new boolean[verticesNum];
+    private static int selectionCtr = 0;
+    private static int first;
+    private static JFXButton temp;
+    private boolean newInstance = false;
+    private ArrayList<JFXButton> allbtns = new ArrayList<>();
 //    private static String[] colors = {"#4A148C" , "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
     String color1 ="#4A148C";
     String color2=  "#3090C7";
-    public static boolean[] selection = new boolean[7];
-    private boolean newInstance = false;
     @FXML
     private AnchorPane pane;
 
@@ -73,130 +78,45 @@ public class GraphViewerController implements Initializable {
         AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
         pane.getChildren().setAll(temp);
     }
+    final int nodeRadius = 20;
 
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-
-//        pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                System.out.println(event.getSceneX());
-//                System.out.println(event.getSceneY());
-//            }
-//        });
-
-        final int nodeRadius = 20;
-        createBorders();
-
-        Line[][] newEdge = new Line[7][7];
-        boolean[][] flag = new boolean[7][7];
-
-         allContinents =  Map.getIntance().getContinents();
-
-
-
-
-
-
-
-        btn[0].setOnAction((event) -> {
-           changeButtonClicked(btn[0], 0);
-        });
-
-        btn[1].setOnAction((event) -> {
-           changeButtonClicked(btn[1], 1);
-        });
-
-        btn[2].setOnAction((event) -> {
-           changeButtonClicked(btn[2], 2);
-        });
-
-        btn[3].setOnAction((event) -> {
-           changeButtonClicked(btn[3], 3);
-        });
-
-        btn[4].setOnAction((event) -> {
-           changeButtonClicked(btn[4], 4);
-        });
-
-        btn[5].setOnAction((event) -> {
-           changeButtonClicked(btn[5], 5);
-        });
-
-        btn[6].setOnAction((event) -> {
-           changeButtonClicked(btn[6], 6);
-        });
-
-    }
-    
-    private static int selectionCtr = 0;
-    private static int first;
-    private static JFXButton temp;
-
-    private void changeButtonClicked(JFXButton btnx, int i) {
-        if (selection[i]) {
-            btnx.setStyle("-fx-background-radius: 35 35 35 35");
-            selection[i] = false;
-            --selectionCtr;
-        } else {
-            if (selectionCtr == 0) {
-                if (newInstance) {
-                    for (int t = 0; t < step; t++) {
-                        newInstance = false;
-                        btn[t].setStyle("-fx-background-radius: 35 35 35 35");;
-                    }
-                }
-                btnx.setStyle("-fx-border-width: 3");
-                selection[i] = true;
-                first = i;
-                temp = btnx;
-
-                ++selectionCtr;
-
-            } else {
-
-            }
-        }
-    }
-
-    public void placeButtonAction(ActionEvent actionEvent) {
-    }
-
-    public void attackButtonAction(ActionEvent actionEvent) {
-    }
-
-    public void nextTurnButtonAction(ActionEvent actionEvent) {
-    }
-    private void generateVertices(){
+    public void generateVertices(){
         //Generating Vertices
-        for (int i = 0; i < allContinents.size(); i++) {
-            for (int j = 0; j < allContinents.get(i).getCountries().size(); j++) {
-                btn[j] = new JFXButton();
-                Country node = allContinents.get(i).getCountries().get(j);
-                btn[j].setText(String.valueOf(node.getNumberArmies()));
+        doeshaveedges  = new boolean[verticesNum][verticesNum];
+        for (int i = 0; i < Map.getIntance().getContinents().size(); i++) {
+            for (int j = 0; j < Map.getIntance().getContinents().get(i).getCountries().size(); j++) {
+                btn = new JFXButton();
+                Country node =Map.getIntance().getContinents().get(i).getCountries().get(j);
+                adjCountries = node.getAdj();
+                for(int k = 0; k< adjCountries.size(); k++){
+                    doeshaveedges[node.getCountryId()-1][adjCountries.get(k).getCountryId()-1] = true;
+                }
+                btn.setText(String.valueOf(node.getNumberArmies()));
                 Integer randomNumX = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersX.get(i)),Collections.max(continentsBordersX.get(i)));
                 Integer randomNumY = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersY.get(i)),Collections.max(continentsBordersY.get(i)));
-                btn[i].setLayoutX(randomNumX);
-                btn[i].setLayoutY(randomNumY);
-                btn[i].setPrefHeight(30);
-                btn[i].setPrefWidth(30);
-                btn[i].setTextFill(Color.WHITE);
+                btn.setLayoutX(randomNumX);
+                btn.setLayoutY(randomNumY);
+                btn.setPrefHeight(30);
+                btn.setPrefWidth(30);
+                btn.setTextFill(Color.WHITE);
                 if(node.getOwner() == Agent.player1)
-                    btn[i].setStyle("-fx-background-color: " + color1 + "; -fx-background-radius: 35 35 35 35");
+                    btn.setStyle("-fx-background-color: " + color1 + "; -fx-background-radius: 35 35 35 35");
                 else
-                    btn[i].setStyle("-fx-background-color: " + color2 + "; -fx-background-radius: 35 35 35 35");
+                    btn.setStyle("-fx-background-color: " + color2 + "; -fx-background-radius: 35 35 35 35");
+                btn.setVisible(true);
+                allbtns.add(btn);
+                pane.getChildren().add(btn);
 
             }
         }
 
+
     }
-    private void createBorders (){
+    public void createBorders (){
         // North America partion 1
 
-        Integer[] layoutX = new Integer[]{47,318};
+        Integer[] layoutX = new Integer[]{107,318};
         Integer[] layoutY = new Integer[]{391,155};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
@@ -232,39 +152,79 @@ public class GraphViewerController implements Initializable {
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
+
     }
 
     public  void generateEdges (){
         //Generating Edges
-//
-//        for (int i = 0; i < ; i++) {
-//            for (int j = 0; j < step; j++) {
-//                //Coordinate of starting point
-//                Integer x1 = btn[i].getLayoutX() + nodeRadius;
-//                Integer y1 = btn[i].getLayoutY() + nodeRadius;
-//
-//                //Coordinate of ending point
-//                Integer x2 = btn[j].getLayoutX() + nodeRadius;
-//                Integer y2 = btn[j].getLayoutY() + nodeRadius;
-//
-//                if (!flag[i][j]) {
-//                    newEdge[i][j] = new Line(x1, y1, x2, y2);
-//                    Integer mx = (x1 + x2) / 2;
-//                    Integer my = (y1 + y2) / 2;
-//                    Integer dnX = y2 - y1;
-//                    Integer dnY = x1 - x2;
-//                    // normalize ortogonal
-//                    Integer length = Math.hypot(dnX, dnY);
-//                    dnX /= length;
-//                    dnY /= length;
-//                    Integer factor = 20;
-//                    Path path = new Path(new MoveTo(x1, y1), new QuadCurveTo(mx + factor * dnX, my + factor * dnY, x2, y2));
-//                    pane.getChildren().add(path);
-//
-//
-//                }
-//            }
-//        }
+
+        for (int i = 0; i < verticesNum; i++) {
+            for (int j = i; j < verticesNum; j++) {
+                //Coordinate of starting point
+                Double x1 = allbtns.get(i).getLayoutX() + nodeRadius*1.0;
+                Double y1 = allbtns.get(i).getLayoutY() + nodeRadius*1.0;
+
+                //Coordinate of ending point
+                Double x2 = allbtns.get(j).getLayoutX() + nodeRadius*1.0;
+                Double y2 = allbtns.get(j).getLayoutY() + nodeRadius*1.0;
+
+                if (doeshaveedges[i][j]) {
+                   newEdge[i][j] = new Line(x1, y1, x2, y2);
+                    Double mx = (x1 + x2) / 2;
+                    Double my = (y1 + y2) / 2;
+                    Double dnX = y2 - y1;
+                    Double dnY = x1 - x2;
+                    // normalize ortogonal
+                    Double length = Math.hypot(dnX, dnY);
+                    dnX /= length;
+                    dnY /= length;
+                    Integer factor = 20;
+                    Path path = new Path(new MoveTo(x1, y1), new QuadCurveTo(mx + factor * dnX, my + factor * dnY, x2, y2));
+                    pane.getChildren().add(path);
+
+                }
+            }
+        }
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+
+//        pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                System.out.println(event.getSceneX());
+//                System.out.println(event.getSceneY());
+//            }
+//        });
+
+        createBorders();
+        generateVertices();
+        generateEdges();
+        int i =0;
+//        while ( i<verticesNum){
+//            final int tmp = i;
+//            allbtns.get(i).setOnMouseClicked((event) -> {
+//                changeButtonClicked(allbtns.get(tmp),tmp);
+//            });
+//            i++;
+//        }
+
+    }
+//    private void changeButtonClicked(JFXButton btnx, int i) {
+//
+//
+//    }
+
+    public void placeButtonAction(ActionEvent actionEvent) {
+    }
+
+    public void attackButtonAction(ActionEvent actionEvent) {
+    }
+
+    public void nextTurnButtonAction(ActionEvent actionEvent) {
+    }
+
 
 }

@@ -13,7 +13,7 @@
     <children>
         <ImageView fitHeight="740.0" fitWidth="1200.0" layoutX="0.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-98.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="8.0">
             <image>
-                <Image requestedHeight="740.0" requestedWidth="1200.0" url="@../icons/map_colored1.png" />
+                <Image url="@icons/map_colored1.png" />
             </image>
         </ImageView>
         <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
@@ -23,7 +23,7 @@
             <children>
                 <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
                     <image>
-                        <Image url="@../icons/Risk-Logo.png" />
+                        <Image url="@icons/Risk-Logo.png" />
                     </image>
                 </ImageView>
             </children>

@@ -5,8 +5,7 @@
  */
 package Controller;
 
-import Model.Agent;
-import Model.AgentType;
+import Model.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -62,16 +61,20 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private FileChooser fileChooser = new FileChooser();
 
+    private  String agent1Type;
+    private  String agent2Type;
+
+
     @FXML
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
         if (selectedFile != null) {
-            String agent1Type = Agent1.getSelectionModel().getSelectedItem().toString();
-            System.out.println(agent1Type);
-            String agent2Type = Agent2.getSelectionModel().getSelectedItem().toString();
-            System.out.println(agent2Type);
-            Agent.player1.setType( AgentType.valueOf(agent1Type));
-            Agent.player2.setType( AgentType.valueOf(agent2Type));
+             agent1Type = Agent1.getSelectionModel().getSelectedItem().toString();
+             agent2Type = Agent2.getSelectionModel().getSelectedItem().toString();
+           determinePlayersType(agent1Type,agent2Type);
+       System.out.println(Agent.player1.getBounceValue());
+            InputReader.getIntance().addFile(selectedFile);
+            InputReader.getIntance().readInput();
             AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
             rootPane.getChildren().setAll(temp);
         }else {
@@ -90,8 +93,6 @@ public class FXMLDocumentController implements Initializable {
             if (selectedFile != null) {
             System.out.println("yes!!!!");
             FileButton.setText(selectedFile.getName());
-             InputReader.getIntance().addFile(selectedFile);
-             InputReader.getIntance().readInput();
             }
     else {
                 System.out.println("NO!!!!");
@@ -113,5 +114,31 @@ public class FXMLDocumentController implements Initializable {
         Agent2.setValue("Completely_Passive");
 
     }
-    
+    public void determinePlayersType(String playerType1,String playerType2){
+        switch (playerType1){
+            case "Human":
+                Agent.player1 = new HumanAgent();
+                break;
+            case "Completely_Passive":
+                Agent.player1 = new CompletelyPassiveAgent();
+                break;
+            case "Aggressive":
+                Agent.player1 = new AggressiveAgent();
+                break;
+            case "Nearly_Pacifist":
+                Agent.player1 = new NearlyPacifistAgent();
+                break;
+        }
+        switch (playerType2){
+            case "Completely_Passive":
+                Agent.player2 = new CompletelyPassiveAgent();
+                break;
+            case "Aggressive":
+                Agent.player2 = new AggressiveAgent();
+                break;
+            case "Nearly_Pacifist":
+                Agent.player2 = new NearlyPacifistAgent();
+                break;
+        }
+    }
 }

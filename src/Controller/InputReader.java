@@ -21,7 +21,7 @@ public class InputReader {
    private String[]  player2Line;
    private ArrayList<String> countriesArmyLines = new ArrayList<>();
    private  int i=0,j=0,k=0;
-
+   private ArrayList<Integer> allbonues = new ArrayList<>();
    private static InputReader reader = null;
 
     public static  InputReader getIntance(){
@@ -66,10 +66,16 @@ public class InputReader {
                // System.out.println(lines.get(edgesNum+4+i));
                 countriesArmyLines.add(lines.get(edgesNum+4+i));
             }
-            for ( j= 0;j<countriesArmyLines.size();j++) {
-                String [] armyLine =  countriesArmyLines.get(j).split(" ");
-                vertices.get(Integer.parseInt(armyLine[1])-1).addArmies(Integer.parseInt(armyLine[2]));
-                System.out.println("army "+vertices.get(j).getNumberArmies());
+            // Read the players countries
+            for (i = 1; i < player1Line.length; i++){
+                int index = Integer.parseInt(player1Line[i])-1;
+                //  System.out.println("index "+index);
+                vertices.get(index).setOwner(Agent.player1);
+            }
+            for (i = 1; i < player2Line.length; i++){
+                int index = Integer.parseInt(player2Line[i])-1;
+                //  System.out.println("index "+index);
+                vertices.get(index).setOwner(Agent.player2);
             }
                 // Read the edges
             for ( j= 0;j<edgesNum;j++){
@@ -80,27 +86,19 @@ public class InputReader {
                 vertices.get(start).addAdj(vertices.get(end));
                 vertices.get(end).addAdj(vertices.get(start));
             }
-            // Read the players countries
-                for (i = 1; i < player1Line.length; i++){
-                    int index = Integer.parseInt(player1Line[i])-1;
-                  //  System.out.println("index "+index);
-                    vertices.get(index).setOwner(Agent.player1);
-                    Agent.player1.addCountry(vertices.get(index));
-            }
-               for (i = 1; i < player2Line.length; i++){
-                int index = Integer.parseInt(player2Line[i])-1;
-                //  System.out.println("index "+index);
-                   vertices.get(index).setOwner(Agent.player2);
-                   Agent.player2.addCountry(vertices.get(index));
-              }
+
             // Read countries armies
+
+            for ( j= 0;j<countriesArmyLines.size();j++) {
+                String [] armyLine =  countriesArmyLines.get(j).split(" ");
+                vertices.get(Integer.parseInt(armyLine[1])-1).addArmies(Integer.parseInt(armyLine[2]));
+                System.out.println("army "+vertices.get(j).getNumberArmies());
+            }
 
 
             // Read the continents
             for ( k= 0;k<continentsNum;k++){
                 lineElements = lines.get(edgesNum+verticesNum+5+k).split(" ");
-             //   System.out.println(lineElements[0]+" "+lineElements[1]+" "+lineElements[2]);
-
                 int bonus = Integer.parseInt(lineElements[0]);
                 nearCountries = new ArrayList<>();
                 for(int i=1;i<lineElements.length;i++){
@@ -109,7 +107,16 @@ public class InputReader {
                 }
                 Map.getIntance().addContinent(new Continent(bonus,nearCountries));
             }
-
+            List<Continent> allContinents  =  Map.getIntance().getContinents();
+            for ( k= 0;k<continentsNum;k++){
+                List<Country> countriesInContinent = allContinents.get(k).getCountries();
+                for(i=0;i<countriesInContinent.size();i++){
+                    if(countriesInContinent.get(i).getOwner()==Agent.player1)
+                        Agent.player1.addCountry(countriesInContinent.get(i));
+                    else
+                        Agent.player2.addCountry(countriesInContinent.get(i));
+                }
+            }
         }
      catch (IOException e) {
             e.printStackTrace();

@@ -19,8 +19,10 @@ public abstract class Agent {
     private List<Country> countriesOwned;
     private static  List<Country> Allcountries;
     private static  List<Point> AllEdges;
-    
-    
+    public static  Agent player1;
+    public static  Agent player2;
+
+
     protected int newCountryBounce = 0;
 
     public Agent(AgentType agentType){
