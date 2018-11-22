@@ -110,7 +110,7 @@ public class FXMLDocumentController implements Initializable {
         Agent2.setItems(list2);
 
         //  inputType.selectToggle(matrixInput);
-        Agent1.setValue("Human");
+        Agent1.setValue("Aggressive");
         Agent2.setValue("Completely_Passive");
 
     }
