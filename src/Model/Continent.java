@@ -10,6 +10,9 @@ public class Continent {
     public Continent(int bounceAdd, List<Country> countries) {
         this.bounceAdd = bounceAdd;
         this.countries = countries;
+        for (Country c : countries) {
+            c.setContinentOwned(this);
+        }
     }
 
     public int getBounceAdd() {

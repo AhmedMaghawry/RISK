@@ -24,5 +24,4 @@ public class Map {
     public List<Continent> getContinents() {
         return continents;
     }
-
 }
