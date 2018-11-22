@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -63,8 +64,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
-        AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
-        rootPane.getChildren().setAll(temp);
+        if (selectedFile != null) {
+            AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
+            rootPane.getChildren().setAll(temp);
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Information Alert");
+            String s ="Please select a valid input file before you play!";
+            alert.setContentText(s);
+            alert.show();
+        }
     }
     @FXML
     private void FileButtonAction(ActionEvent e) throws IOException{
@@ -76,7 +85,6 @@ public class FXMLDocumentController implements Initializable {
             FileButton.setText(selectedFile.getName());
              reader = new InputReader(selectedFile);
              reader.readInput();
-
             }
     else {
                 System.out.println("NO!!!!");
