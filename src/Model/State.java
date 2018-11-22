@@ -57,6 +57,11 @@ public class State {
 		return null;
 	}
 
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return new State(myCountries,  oppenentCountris, place, attack, parent);
+	}
+
 	public static void main(String[] args) {
 		List<Country> countries = new ArrayList<>();
 		Agent a =new AggressiveAgent();

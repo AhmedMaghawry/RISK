@@ -59,6 +59,10 @@ public class Country {
         adj.add(country);
     }
 
+    public void setAdj(List<Country> adj) {
+        this.adj = adj;
+    }
+
     public boolean isBelongAgent(Agent agent) {
         return owner.equals(agent);
     }
@@ -92,5 +96,15 @@ public class Country {
 
         }
         return avalibleAttacks;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Country country = new Country(countryId);
+        country.setOwner(owner);
+        country.setContinentOwned(continentOwned);
+        country.setNumberArmies(numberArmies);
+        country.setAdj(adj);
+        return country;
     }
 }
