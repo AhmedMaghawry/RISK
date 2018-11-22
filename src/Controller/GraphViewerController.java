@@ -38,6 +38,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GraphViewerController implements Initializable {
 
     private static ArrayList<String> vertex = FXMLDocumentController.vertex;
+    public Label Player2Turn;
+    public Label Player1Turn;
     private ArrayList<ArrayList<Integer>> continentsBordersX = new ArrayList<>();
     private ArrayList<ArrayList<Integer>> continentsBordersY= new ArrayList<>();
     private int verticesNum = InputReader.getIntance().getVertices().size();
@@ -66,12 +68,6 @@ public class GraphViewerController implements Initializable {
 
     @FXML
     private JFXButton previousButton;
-
-    @FXML
-    void previousButtonAction(ActionEvent event) throws IOException {
-        AnchorPane temp = FXMLLoader.load(getClass().getResource("CategoryChooser.fxml"));
-        pane.getChildren().setAll(temp);
-    }
 
     @FXML
     void startOverButtonAction(ActionEvent event) throws IOException {
@@ -225,6 +221,8 @@ public class GraphViewerController implements Initializable {
 
     public void nextTurnButtonAction(ActionEvent actionEvent) {
     }
+    public void updatePane() {
 
+    }
 
 }

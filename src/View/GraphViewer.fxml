@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -60,5 +61,24 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
+      <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="1080.0" layoutY="555.0">
+         <image>
+            <Image url="@icons/player1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="79.0" layoutX="1082.0" layoutY="626.0">
+         <image>
+            <Image url="@icons/player2.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="Player1Turn" layoutX="1167.0" layoutY="590.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #4A148C; -fx-background-radius: 50 50 50 50;" text="  Player1 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="Player2Turn" layoutX="1167.0" layoutY="662.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #3090C7; -fx-background-radius: 50 50 50 50;" text="  Player2 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
     </children>
 </AnchorPane>
