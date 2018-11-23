@@ -252,17 +252,17 @@ public class GraphViewerController implements Initializable {
         if(isplayer1Turn){
             Agent.player1.place();
             updatePane();
-            Player1Turn.setDisable(true);
-            Player2Turn.setDisable(false);
-            isplayer1Turn =false;
+            //Player1Turn.setDisable(true);
+            //Player2Turn.setDisable(false);
+            //isplayer1Turn =false;
 
         }
         if(isplayer2Turn){
             Agent.player2.place();
             updatePane();
-            Player1Turn.setDisable(false);
-            Player2Turn.setDisable(true);
-            isplayer2Turn = false;
+            //Player1Turn.setDisable(false);
+            //Player2Turn.setDisable(true);
+            //isplayer2Turn = false;
         }
         placeButton.setDisable(true);
         attackButton.setDisable(false);
@@ -272,16 +272,16 @@ public class GraphViewerController implements Initializable {
         if(isplayer1Turn){
             Agent.player1.attack();
             updatePane();
-            Player1Turn.setDisable(true);
-            Player2Turn.setDisable(false);
-            isplayer1Turn =false;
+            //Player1Turn.setDisable(true);
+            //Player2Turn.setDisable(false);
+            //isplayer1Turn =false;
         }
         if(isplayer2Turn){
-            Agent.player2.place();
+            Agent.player2.attack();
             updatePane();
-            Player1Turn.setDisable(false);
-            Player2Turn.setDisable(true);
-            isplayer2Turn = false;
+            //Player1Turn.setDisable(false);
+            //Player2Turn.setDisable(true);
+            //isplayer2Turn = false;
         }
         placeButton.setDisable(true);
         attackButton.setDisable(true);
@@ -297,7 +297,7 @@ public class GraphViewerController implements Initializable {
             Player1Turn.setDisable(false);
             Player2Turn.setDisable(true);
         }
-        if(isplayer1Turn){
+        if(isplayer2Turn){
             Player1Turn.setDisable(true);
             Player2Turn.setDisable(false);
         }
