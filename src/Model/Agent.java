@@ -125,20 +125,22 @@ public abstract class Agent {
         if (!from.getOwner().equals(this) || (to.getOwner() != null && to.getOwner().equals(this)) || !from.isAdj(to))
             return false;
 
+        int remain = from.getNumberArmies() - to.getNumberArmies();
         if (to.getOwner() == null) {
-            from.setNumberArmies(1);
-            to.setNumberArmies(from.getNumberArmies() - to.getNumberArmies() - 1);
+            from.setNumberArmies((int) Math.floor(remain/2.0));
+            to.setNumberArmies((int) Math.ceil(remain / 2.0));
             addCountry(to);
             newCountryBounce = 2;
             return true;
         }
 
-        if (from.getNumberArmies() - to.getNumberArmies() > 1) {
+        if (remain > 1) {
             subArmies(to.getNumberArmies());
-            from.setNumberArmies(1);
-            to.setNumberArmies(from.getNumberArmies() - to.getNumberArmies() - 1);
-            addCountry(to);
+            to.getOwner().subArmies(to.getNumberArmies());
+            from.setNumberArmies((int) Math.floor(remain/2.0));
+            to.setNumberArmies((int) Math.ceil(remain / 2.0));
             to.getOwner().subCountry(to);
+            addCountry(to);
             newCountryBounce = 2;
         } else {
             subArmies(from.getNumberArmies());
@@ -158,5 +160,9 @@ public abstract class Agent {
         } else
             return false;
         return true;
+    }
+
+    public int getNumberOfArmies() {
+        return numberOfArmies;
     }
 }

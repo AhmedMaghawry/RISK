@@ -21,6 +21,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
+import javax.swing.text.html.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +50,9 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton FileButton;
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private ImageView img;
     
     @FXML
     private ToggleGroup inputType;
@@ -114,6 +118,7 @@ public class FXMLDocumentController implements Initializable {
         Agent2.setValue("Completely_Passive");
 
     }
+
     public void determinePlayersType(String playerType1,String playerType2){
         switch (playerType1){
             case "Human":

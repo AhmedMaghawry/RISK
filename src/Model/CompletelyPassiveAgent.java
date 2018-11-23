@@ -24,13 +24,7 @@ public class CompletelyPassiveAgent extends Agent {
 		for (Country c : getCountriesOwned())
 			if (c.getNumberArmies() < temp.getNumberArmies())
 				temp = c;
-		if (temp != null) {
-			temp.addArmies(this.getBounceValue());
-			temp.addArmies(this.newCountryBounce);
-			this.newCountryBounce = 0;
-			return true;
-		}
-		return false;
+		return place(temp);
 	}
 
 }

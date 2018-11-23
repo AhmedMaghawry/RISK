@@ -6,6 +6,7 @@ import java.util.List;
 import javafx.util.Pair;
 
 public class State {
+
 	List<Country> myCountries, oppenentCountris;
 	Pair<Country, Integer> place;
 	Pair<Country, Country> attack;
