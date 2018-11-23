@@ -9,6 +9,7 @@ import Model.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,12 +17,22 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
+import javafx.scene.control.ToggleButton;
 
-import javax.swing.text.html.ImageView;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +54,10 @@ public class FXMLDocumentController implements Initializable {
     public static ArrayList <String>vertex = new ArrayList<>();
 
     public  File selectedFile;
+    public ImageView backgroundImage;
+    public StackPane stackPane;
+    @FXML
+    private ToggleButton toggle ;
     @FXML
     private JFXButton nextButton;
 
@@ -53,9 +68,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ImageView img;
-    
-    @FXML
-    private ToggleGroup inputType;
+
 
     @FXML
     private JFXComboBox<String> Agent1;
@@ -67,8 +80,8 @@ public class FXMLDocumentController implements Initializable {
 
     private  String agent1Type;
     private  String agent2Type;
-
-
+    private Boolean isFullscreen = false;
+    private  Stage stage;
     @FXML
     private void nextButtonAction(ActionEvent e) throws IOException{
       //  value = vertex.getValue();
@@ -114,8 +127,13 @@ public class FXMLDocumentController implements Initializable {
         Agent2.setItems(list2);
 
         //  inputType.selectToggle(matrixInput);
-        Agent1.setValue("Aggressive");
+        Agent1.setValue("Nearly_Pacifist");
         Agent2.setValue("Completely_Passive");
+//        toggle.getStylesheets().add(this.getClass().getResource(
+//                "/View/main.css"
+//        ).toExternalForm());
+
+
 
     }
 
@@ -146,4 +164,23 @@ public class FXMLDocumentController implements Initializable {
                 break;
         }
     }
+    @FXML
+    public void toggleAction (ActionEvent e){
+        isFullscreen = !isFullscreen;
+        if(isFullscreen){
+            stage = (Stage) rootPane.getScene().getWindow();
+            stage.setFullScreen(true);
+            stage.setResizable(true);
+            stage.show();
+        }
+        else {
+             stage = (Stage) rootPane.getScene().getWindow();
+            stage.setFullScreen(false);
+            stage.setResizable(true);
+            stage.show();
+
+        }
+
+    }
+
 }

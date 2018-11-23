@@ -1,12 +1,4 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Nov 23, 2017, 11:47:46 PM
-    Author     : void
-*/
+
 
 .jfx-snackbar-content{
     -fx-background-color: #ff0000;
@@ -22,3 +14,20 @@ and open the template in the editor.
    
 }
 
+.toggle-button {
+    -fx-graphic: url('/View/icons/icons-expand.png');
+    -fx-background-color: null;
+
+}
+
+.toggle-button:selected {
+    -fx-graphic: url('/View/icons/icons-collapse.png');
+    -fx-background-color: null;
+}
+.combo-box .cell {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-focus-color: null;
+    -fx-background-color:  #1A237E;
+
+}

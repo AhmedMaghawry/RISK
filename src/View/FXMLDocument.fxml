@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,36 +12,29 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" accessibleRole="CHECK_BOX" maxHeight="740.0" maxWidth="1300.0" prefHeight="740.0" prefWidth="1300.0" style="-fx-border-radius: 0 0 50 50;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" accessibleRole="CHECK_BOX" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-radius: 0 0 50 50;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
    <children>
-       <ImageView fitHeight="740.0" fitWidth="1300.0" layoutX="0.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="backgroundImage" fitHeight="790.0" fitWidth="1370.0" pickOnBounds="true" preserveRatio="true">
            <image>
-               <Image url="@icons/Risk.png" />
+               <Image url="@icons/risk.jpg" />
            </image>
        </ImageView>
-       <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
+       <StackPane fx:id="stackPane" maxWidth="1.7976931348623157E308" prefWidth="1500.0" style="-fx-background-color: #1A237E;">
            <effect>
                <DropShadow />
            </effect>
-         <children>
-            <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
-               <image>
-                  <Image url="@icons/Risk-Logo.png" />
-               </image>
-            </ImageView>
-         </children>
        </StackPane>
        <ImageView fitHeight="211.0" fitWidth="260.0" layoutX="95.0" layoutY="113.0">
            <image>
                <Image url="@icons/player1.png" />
            </image>
-       </ImageView><ImageView fitHeight="211.0" fitWidth="260.0" layoutX="946.0" layoutY="113.0">
+       </ImageView><ImageView fitHeight="211.0" fitWidth="260.0" layoutX="1065.0" layoutY="113.0">
        <image>
            <Image url="@icons/player2.png" />
        </image>
    </ImageView>
-      <JFXComboBox  fx:id="Agent1" layoutX="119.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" />
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="523.0" layoutY="562.0" onAction="#nextButtonAction" prefHeight="78.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" text="Play" textFill="WHITE">
+      <JFXComboBox fx:id="Agent1" focusColor="#ab9c9c" layoutX="73.0" layoutY="475.0" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" unFocusColor="#bfa7a7" />
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="171.0" layoutY="647.0" onAction="#nextButtonAction" prefHeight="78.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" text="Play" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -48,22 +42,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="412.0" layoutY="205.0" prefHeight="50.0" prefWidth="396.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" text="         Input file:" textFill="#1a237e">
+      <Label layoutX="840.0" layoutY="647.0" prefHeight="50.0" prefWidth="396.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" text="         Input file:" textFill="#1a237e">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label ellipsisString="" layoutX="977.0" layoutY="392.0" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #3090C7;" text="   Select Player 2 type" textFill="#fcfcfc">
+      <Label ellipsisString="" layoutX="1090.0" layoutY="392.0" prefHeight="35.0" prefWidth="197.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #3090C7;" text="   Select Player 2 type" textAlignment="CENTER" textFill="#fcfcfc">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="FileButton" buttonType="RAISED" layoutX="658.0" layoutY="218.0" mnemonicParsing="false" onAction="#FileButtonAction" prefHeight="0.0" prefWidth="137.0" ripplerFill="BLACK" style="-fx-background-color: #1A237E;" text="Choose File" textFill="WHITE" />
-      <Label ellipsisString="" layoutX="95.0" layoutY="392.0" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: Purple;" text="  Select Player 1 type" textFill="#fcfcfc">
+       <ToggleButton fx:id="toggle" layoutX="10" layoutY="660" maxHeight="50.0" maxWidth="50.0" onAction="#toggleAction" />
+      <JFXButton fx:id="FileButton" buttonType="RAISED" layoutX="1065.0" layoutY="660.0" mnemonicParsing="false" onAction="#FileButtonAction" prefHeight="0.0" prefWidth="137.0" ripplerFill="BLACK" style="-fx-background-color: #1A237E;" text="Choose File" textFill="WHITE" />
+      <Label ellipsisString="" layoutX="73.0" layoutY="392.0" prefHeight="35.0" prefWidth="197.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: Purple;" text="    Select Player 1 type" textAlignment="CENTER" textFill="#fcfcfc">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-       <JFXComboBox  fx:id="Agent2" layoutX="1001.0" layoutY="475.0" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-background-radius: 50 50 50 50;" />
+       <JFXComboBox fx:id="Agent2" focusColor="#b2a3a3" layoutX="1090.0" layoutY="466.0" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #1A237E; -fx-background-radius: 50 50 50 50;" unFocusColor="#c6b0b0" />
    </children>
 </AnchorPane>

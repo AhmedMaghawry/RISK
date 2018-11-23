@@ -10,23 +10,30 @@ import Model.Continent;
 import Model.Country;
 import Model.Map;
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.util.Collections;
 import java.awt.*;
 import java.io.IOException;
@@ -35,6 +42,8 @@ import java.net.URL;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static java.lang.System.exit;
 
 /**
  * FXML Controller class
@@ -50,12 +59,18 @@ public class GraphViewerController implements Initializable {
     public JFXButton attackButton;
     public JFXButton nextTurnButton;
     private  Scene startscene;
+    private  Stage startStage;
+
+    @FXML
+    private ToggleButton toggle ;
     private ArrayList<ArrayList<Integer>> continentsBordersX = new ArrayList<>();
     private ArrayList<ArrayList<Integer>> continentsBordersY= new ArrayList<>();
 
     private ArrayList<Integer> countryBordersX = new ArrayList<>();
     private ArrayList<Integer> countryBordersY= new ArrayList<>();
+    private Media sound = new Media(new File("battle-music.mp3").toURI().toString());
 
+    private MediaPlayer mediaPlayer = new MediaPlayer(sound);
     private int verticesNum = InputReader.getIntance().getVertices().size();
     private boolean doeshaveedges [][];
     private List<Country> adjCountries = new ArrayList<>();
@@ -69,10 +84,13 @@ public class GraphViewerController implements Initializable {
     private boolean isplayer2Turn = false;
     private ArrayList<Path> allPaths= new ArrayList<>();
     private JFXButton []allbtns = new JFXButton[verticesNum];
+    private Boolean isFullscreen = false;
+    private  Stage stage;
+    private String color1 ="#4A148C";
+    private String color2=  "#3090C7";
+    private Media adavnceSound = new Media(new File("advance-shout.wav").toURI().toString());
+    private Media fireSound = new Media(new File("fire-shout.wav").toURI().toString());
 
-//    private static String[] colors = {"#4A148C" , "#00838F", "#2E7D32", "#283593", "#4E342E", "#37474F", "#827717"};
-    String color1 ="#4A148C";
-    String color2=  "#3090C7";
     @FXML
     private AnchorPane pane;
 
@@ -81,8 +99,6 @@ public class GraphViewerController implements Initializable {
 
     @FXML
     private Label resultLabel;
-
-
     @FXML
     void startOverButtonAction(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -92,9 +108,7 @@ public class GraphViewerController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            clearPane();
-            AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
-            pane.getChildren().setAll(temp);
+            exit(0);
         } else {
            alert.close();
         }
@@ -221,6 +235,7 @@ public class GraphViewerController implements Initializable {
 //                System.out.println(event.getSceneY());
 //            }
 //        });
+      //  playBackMusic();
         createBorders();
         generateVertices();
         generateEdges();
@@ -230,8 +245,9 @@ public class GraphViewerController implements Initializable {
         isplayer1Turn = true;
         Player1Turn.setDisable(false);
         Player2Turn.setDisable(true);
-//        startscene = pane.getScene();
-//        startStage = (Stage) startscene.getWindow();
+//        toggle.getStylesheets().add(this.getClass().getResource(
+//                "/View/main.css"
+//        ).toExternalForm());
 //        while ( i<verticesNum){
 //            final int tmp = i;
 //            allbtns[m.setOnMouseClicked((event) -> {
@@ -243,6 +259,9 @@ public class GraphViewerController implements Initializable {
     }
 
     public void placeButtonAction(ActionEvent actionEvent) {
+        MediaPlayer advancePlayer = new MediaPlayer(adavnceSound);
+        advancePlayer.play();
+        placeButton.setDisable(true);
         if(isplayer1Turn){
             Agent.player1.place();
             updatePane();
@@ -258,11 +277,24 @@ public class GraphViewerController implements Initializable {
             //Player2Turn.setDisable(true);
             //isplayer2Turn = false;
         }
-        placeButton.setDisable(true);
-        attackButton.setDisable(false);
+            PauseTransition pause = new PauseTransition(
+                    Duration.seconds(2)
+                    );
+            pause.setOnFinished(event -> {
+            //    playBackMusic();
+                attackButton.setDisable(false);
+            });
+            pause.play();
+
+
     }
 
     public void attackButtonAction(ActionEvent actionEvent) {
+
+
+        MediaPlayer firePlayer = new MediaPlayer(fireSound);
+        firePlayer.play();
+        attackButton.setDisable(true);
         if(isplayer1Turn){
             Agent.player1.attack();
             updatePane();
@@ -291,9 +323,16 @@ public class GraphViewerController implements Initializable {
             //Player2Turn.setDisable(true);
             //isplayer2Turn = false;
         }
-        placeButton.setDisable(true);
-        attackButton.setDisable(true);
-        nextTurnButton.setDisable(false);
+
+        PauseTransition pause = new PauseTransition(
+                Duration.seconds(2)
+        );
+        pause.setOnFinished(event -> {
+            nextTurnButton.setDisable(false);
+         //   playBackMusic();
+        });
+        pause.play();
+
     }
 
     private void win(String player) throws IOException {
@@ -304,9 +343,7 @@ public class GraphViewerController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            clearPane();
-            AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
-            pane.getChildren().setAll(temp);
+            exit(0);
         }
     }
 
@@ -366,4 +403,29 @@ public void hideCountries(){
        hideEdges();
         pane.requestLayout();
    }
+    @FXML
+    public void toggleAction (ActionEvent e){
+        isFullscreen = !isFullscreen;
+        if(isFullscreen){
+            stage = (Stage) pane.getScene().getWindow();
+            stage.setFullScreen(true);
+            stage.setResizable(true);
+            stage.show();
+        }
+        else {
+            stage = (Stage) pane.getScene().getWindow();
+            stage.setFullScreen(false);
+            stage.setResizable(true);
+            stage.show();
+
+        }
+    }
+    void playBackMusic(){
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
+        mediaPlayer.play();
+    }
 }

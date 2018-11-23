@@ -7,30 +7,47 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
+import java.io.File;
 
 /**
  *
  * @author void
  */
 public class Main extends Application {
-    
+    public static MediaPlayer mediaPlayer;
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
         /*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight()- 100;*/
+
+
         Scene scene = new Scene(root);
         String css = Main.class.getResource("/View/main.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.setTitle("Risk Game");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.show();
+        String musicFile = "battle-music.mp3";     // For example
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
+        mediaPlayer.play();
     }
 
     /**
@@ -39,5 +56,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }
