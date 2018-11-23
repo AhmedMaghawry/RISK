@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FXMLDocumentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FXMLDocumentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -70,8 +67,8 @@
       <file leaf-file-name="GraphViewerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="316" column="52" selection-start-line="316" selection-start-column="52" selection-end-line="316" selection-end-column="52" />
+            <state relative-caret-position="131">
+              <caret line="48" column="20" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,8 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>combo</find>
-      <find>vertices</find>
       <find>JFXComboBox</find>
       <find>Double</find>
       <find>.0</find>
@@ -174,6 +169,8 @@
       <find>Red</find>
       <find>disa</find>
       <find>color1</find>
+      <find>temp</find>
+      <find>button</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -379,7 +376,7 @@
       <workItem from="1542881525367" duration="659000" />
       <workItem from="1542891324580" duration="8132000" />
       <workItem from="1542899776587" duration="7893000" />
-      <workItem from="1542915570325" duration="11254000" />
+      <workItem from="1542915570325" duration="12420000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit added graph datastructure">
       <created>1542740926249</created>
@@ -402,11 +399,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542900841312</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="game is now being played by agents except human not sure is right :D">
+      <created>1542926956691</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542926956691</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89925000" />
+    <option name="totallyTimeSpent" value="91091000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -419,7 +423,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1309" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="7" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32917318" />
@@ -430,7 +433,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.32858273" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.25429016" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.25429016" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32917318" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32917318" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
@@ -496,7 +499,8 @@
     <MESSAGE value="3nd commit Ezzat added Model , Marwan added FileReader and modified GUI" />
     <MESSAGE value="4th commit updated GUI" />
     <MESSAGE value="Merge branch 'master' of https://github.com/AhmedMaghawry/RISK&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/Controller/GraphViewerController.java&#10;#&#9;src/Model/Agent.java&#10;&#10;commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/AhmedMaghawry/RISK&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/Controller/GraphViewerController.java&#10;#&#9;src/Model/Agent.java&#10;&#10;commit test" />
+    <MESSAGE value="game is now being played by agents except human not sure is right :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="game is now being played by agents except human not sure is right :D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -718,8 +722,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="316" column="52" selection-start-line="316" selection-start-column="52" selection-end-line="316" selection-end-column="52" />
+        <state relative-caret-position="131">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

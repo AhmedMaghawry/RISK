@@ -60,12 +60,10 @@ public class GraphViewerController implements Initializable {
     private boolean doeshaveedges [][];
     private List<Country> adjCountries = new ArrayList<>();
     public static int step=4;
-    private JFXButton btn ;
     private Line[][] newEdge = new Line[verticesNum][verticesNum];
     public boolean[] selection = new boolean[verticesNum];
     private static int selectionCtr = 0;
     private static int first;
-    private static JFXButton temp;
     private boolean newInstance = false;
     private boolean isplayer1Turn = false;
     private boolean isplayer2Turn = false;
@@ -243,10 +241,6 @@ public class GraphViewerController implements Initializable {
 //        }
 
     }
-//    private void changeButtonClicked(JFXButton btnx, int i) {
-//
-//
-//    }
 
     public void placeButtonAction(ActionEvent actionEvent) {
         if(isplayer1Turn){
