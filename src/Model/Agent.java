@@ -127,8 +127,8 @@ public abstract class Agent {
 
         int remain = from.getNumberArmies() - to.getNumberArmies();
         if (to.getOwner() == null) {
-            from.setNumberArmies((int) Math.floor(remain/2));
-            to.setNumberArmies((int) Math.ceil(remain / 2));
+            from.setNumberArmies((int) Math.floor(remain/2.0));
+            to.setNumberArmies((int) Math.ceil(remain / 2.0));
             addCountry(to);
             newCountryBounce = 2;
             return true;
@@ -136,10 +136,11 @@ public abstract class Agent {
 
         if (remain > 1) {
             subArmies(to.getNumberArmies());
-            from.setNumberArmies((int) Math.floor(remain/2));
-            to.setNumberArmies((int) Math.ceil(remain / 2));
-            addCountry(to);
+            to.getOwner().subArmies(to.getNumberArmies());
+            from.setNumberArmies((int) Math.floor(remain/2.0));
+            to.setNumberArmies((int) Math.ceil(remain / 2.0));
             to.getOwner().subCountry(to);
+            addCountry(to);
             newCountryBounce = 2;
         } else {
             subArmies(from.getNumberArmies());
@@ -159,5 +160,9 @@ public abstract class Agent {
         } else
             return false;
         return true;
+    }
+
+    public int getNumberOfArmies() {
+        return numberOfArmies;
     }
 }

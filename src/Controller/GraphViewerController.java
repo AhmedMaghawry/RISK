@@ -272,6 +272,13 @@ public class GraphViewerController implements Initializable {
         if(isplayer1Turn){
             Agent.player1.attack();
             updatePane();
+            if (Agent.player2.getNumberOfArmies() == 0) {
+                try {
+                    win("Player 1");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             //Player1Turn.setDisable(true);
             //Player2Turn.setDisable(false);
             //isplayer1Turn =false;
@@ -279,6 +286,13 @@ public class GraphViewerController implements Initializable {
         if(isplayer2Turn){
             Agent.player2.attack();
             updatePane();
+            if (Agent.player1.getNumberOfArmies() == 0) {
+                try {
+                    win("Player 2");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             //Player1Turn.setDisable(false);
             //Player2Turn.setDisable(true);
             //isplayer2Turn = false;
@@ -286,6 +300,20 @@ public class GraphViewerController implements Initializable {
         placeButton.setDisable(true);
         attackButton.setDisable(true);
         nextTurnButton.setDisable(false);
+    }
+
+    private void win(String player) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText("Winner");
+        alert.setContentText("Congratulations " + player + " Wins");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            clearPane();
+            AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/FXMLDocument.fxml"));
+            pane.getChildren().setAll(temp);
+        }
     }
 
     public void nextTurnButtonAction(ActionEvent actionEvent) {
