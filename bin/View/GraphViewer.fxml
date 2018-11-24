@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" maxHeight="740.0" maxWidth="1300.0" prefHeight="740.0" prefWidth="1300.0" style="-fx-background-color: lightBlue;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GraphViewerController">
+    <children>
+        <ImageView fitHeight="740.0" fitWidth="1200.0" layoutX="0.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-98.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="8.0">
+            <image>
+                <Image url="@icons/map_colored1.png" />
+            </image>
+        </ImageView>
+        <StackPane prefHeight="50.0" prefWidth="1300.0" style="-fx-background-color: #1A237E;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <ImageView fitHeight="63.0" fitWidth="150.0" layoutX="650.0">
+                    <image>
+                        <Image url="@icons/Risk-Logo.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </StackPane>
+        <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="1121.0" layoutY="492.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Start Over" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="placeButton" buttonType="RAISED" layoutX="1121.0" layoutY="313.0" onAction="#placeButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Green;" text="Place" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="attackButton" buttonType="RAISED" layoutX="1121.0" layoutY="226.0" onAction="#attackButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Red;" text="Attack" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="nextTurnButton" buttonType="RAISED" layoutX="1121.0" layoutY="401.0" onAction="#nextTurnButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Blue;" text="Next" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+      <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="1080.0" layoutY="555.0">
+         <image>
+            <Image url="@icons/player1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="79.0" layoutX="1082.0" layoutY="626.0">
+         <image>
+            <Image url="@icons/player2.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="Player1Turn" layoutX="1167.0" layoutY="590.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #4A148C; -fx-background-radius: 50 50 50 50;" text="  Player1 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="Player2Turn" layoutX="1167.0" layoutY="662.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #3090C7; -fx-background-radius: 50 50 50 50;" text="  Player2 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+    </children>
+</AnchorPane>
