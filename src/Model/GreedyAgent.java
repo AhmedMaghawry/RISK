@@ -43,8 +43,7 @@ public class GreedyAgent extends Agent{
 			}
 			game.add(best);
 			s=best;
-		}		
-		
+		}				
 		return game;
 	}
 	

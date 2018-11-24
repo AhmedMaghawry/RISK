@@ -14,6 +14,7 @@ public class NState {
 	public Pair<Integer, Integer> attack;
 	public int damage;
 	public NState parent;
+	public Pair<Integer, Integer> oppenentPlace;
 
 	public NState() {
 		allCountries = new ArrayList<>();
@@ -26,7 +27,6 @@ public class NState {
 
 		if (attack == null)
 			return;
-
 		SCountry first = allCountries.get(attack.getKey());
 		SCountry second = allCountries.get(attack.getValue());
 		int remain = first.numberArmies - second.numberArmies;
@@ -64,11 +64,11 @@ public class NState {
 		for (int i : opponentCountris)
 			if (allCountries.get(i).numberArmies < allCountries.get(leastcontry).numberArmies)
 				leastcontry = i;
-
-		allCountries.get(leastcontry).numberArmies += getOpponentBounce();
+		oppenentPlace=new Pair<Integer, Integer>(leastcontry, getOpponentBounce());
+		allCountries.get(leastcontry).numberArmies += oppenentPlace.getValue();
 
 	}
-
+	
 	public List<NState> getSuccssors() {
 		List<NState> successors = new ArrayList<>();
 		List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
@@ -208,6 +208,7 @@ public class NState {
 			if (ss.place != null)
 				System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
 		}
+		System.out.println("\n       You win");
 
 		// List<Integer>ss =new ArrayList<>();
 		// for (int i = 10; i > 0; i--) {
