@@ -15,7 +15,7 @@ public class NState {
     public int damage;
     public NState parent;
     public Pair<Integer, Integer> oppenentPlace;
-
+    public  static  NState globalState;
     public NState() {
         allCountries = new ArrayList<>();
         myCountries = new ArrayList<>();
