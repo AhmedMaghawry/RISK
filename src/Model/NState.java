@@ -7,13 +7,15 @@ import javafx.util.Pair;
 
 public class NState {
 
-   public List<SCountry> allCountries;
+    public List<SCountry> allCountries;
     public List<Integer> myCountries, opponentCountris;
     public List<SContinent> continents;
     public Pair<Integer, Integer> place;
     public Pair<Integer, Integer> attack;
+    public int damage;
     public NState parent;
-    public static NState globalState;
+    public Pair<Integer, Integer> oppenentPlace;
+
     public NState() {
         allCountries = new ArrayList<>();
         myCountries = new ArrayList<>();
@@ -25,7 +27,6 @@ public class NState {
 
         if (attack == null)
             return;
-
         SCountry first = allCountries.get(attack.getKey());
         SCountry second = allCountries.get(attack.getValue());
         int remain = first.numberArmies - second.numberArmies;
@@ -35,21 +36,36 @@ public class NState {
         opponentCountris.remove(new Integer(second.id));
         myCountries.add(new Integer(second.id));
         // add opponent bounce
-        addOpponentBounce();
+        if(!opponentCountris.isEmpty())
+            addOpponentBounce();
 
     }
 
-    void addOpponentBounce() {
+    public int getOpponentBounce() {
         int bounse = Math.max(3, opponentCountris.size() / 3);
         for (SContinent sc : continents)
             if (opponentCountris.containsAll(sc.countries))
                 bounse += sc.bounse;
+        return bounse;
+    }
+
+    public int getMyBounce() {
+        int bounse = Math.max(3, myCountries.size() / 3);
+        if (attack != null)
+            bounse += 2;
+        for (SContinent sc : continents)
+            if (myCountries.containsAll(sc.countries))
+                bounse += sc.bounse;
+        return bounse;
+    }
+
+    private void addOpponentBounce() {
         int leastcontry = opponentCountris.get(0);
         for (int i : opponentCountris)
             if (allCountries.get(i).numberArmies < allCountries.get(leastcontry).numberArmies)
                 leastcontry = i;
-
-        allCountries.get(leastcontry).numberArmies += bounse;
+        oppenentPlace=new Pair<Integer, Integer>(leastcontry, getOpponentBounce());
+        allCountries.get(leastcontry).numberArmies += oppenentPlace.getValue();
 
     }
 
@@ -62,14 +78,8 @@ public class NState {
 
         for (int index : myCountries) {
             SCountry c = allCountries.get(index);
-            int bounse = Math.max(3, myCountries.size() / 3);
-            if (attack != null)
-                bounse += 2;
-            for (SContinent sc : continents)
-                if (myCountries.containsAll(sc.countries))
-                    bounse += sc.bounse;
+            int bounse = getMyBounce();
             c.numberArmies += bounse;
-
             Pair<Integer, Integer> tempPlace = new Pair(c.id, bounse);
 
             for (Pair<Integer, Integer> p : avalibleAttacks) {
@@ -181,7 +191,8 @@ public class NState {
         s.opponentCountris = myCountries;
         s.continents = continents;
 
-        for (NState ss : s.getSuccssors()) {
+        GreedyAgent g=new GreedyAgent();
+        for (NState ss : g.generate_game(s)) {
             System.out.println("-------------------------------\n");
             for (SCountry sc : ss.allCountries)
                 System.out.println("country (" + sc.id + ")  owner : " + sc.owner + "number ar  :" + sc.numberArmies);
@@ -197,6 +208,7 @@ public class NState {
             if (ss.place != null)
                 System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
         }
+        System.out.println("\n       You win");
 
         // List<Integer>ss =new ArrayList<>();
         // for (int i = 10; i > 0; i--) {

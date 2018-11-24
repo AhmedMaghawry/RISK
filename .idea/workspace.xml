@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/NState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/SContinent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/SCountry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/GreedyAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/NState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/NState.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +24,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="495">
               <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,12 +36,10 @@
       <file leaf-file-name="SContinent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/SContinent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="120">
               <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,12 +48,10 @@
       <file leaf-file-name="SCountry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/SCountry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="165">
               <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,12 +60,10 @@
       <file leaf-file-name="InputReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/InputReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-928">
-              <caret line="115" column="63" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
+            <state relative-caret-position="705">
+              <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5403#5404#0" expanded="true" />
-                <element signature="e#5434#5435#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +72,20 @@
       <file leaf-file-name="NState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/NState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2413">
-              <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+            <state relative-caret-position="556">
+              <caret line="221" column="1" selection-start-line="221" selection-start-column="1" selection-end-line="221" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GreedyAgent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/GreedyAgent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,8 +175,9 @@
         <option value="$PROJECT_DIR$/src/Model/Scontinent.java" />
         <option value="$PROJECT_DIR$/src/Model/SCountry.java" />
         <option value="$PROJECT_DIR$/src/Model/SContinent.java" />
-        <option value="$PROJECT_DIR$/src/Model/NState.java" />
         <option value="$PROJECT_DIR$/src/Controller/InputReader.java" />
+        <option value="$PROJECT_DIR$/src/Model/GreedyAgent.java" />
+        <option value="$PROJECT_DIR$/src/Model/NState.java" />
       </list>
     </option>
   </component>
@@ -206,6 +211,32 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISK" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISK" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISK" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -224,38 +255,6 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISK" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISK" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISK" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISK" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISK" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +395,8 @@
       <workItem from="1542994420328" duration="5733000" />
       <workItem from="1543013345704" duration="3901000" />
       <workItem from="1543059118328" duration="2341000" />
-      <workItem from="1543080071749" duration="6050000" />
+      <workItem from="1543080071749" duration="8287000" />
+      <workItem from="1543091556198" duration="666000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit added graph datastructure">
       <created>1542740926249</created>
@@ -447,11 +447,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543017120029</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added creation of Nstate after reading the input file">
+      <created>1543086506238</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543086506238</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed error on creation of Nstate after reading the input file">
+      <created>1543087400173</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543087400173</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119375000" />
+    <option name="totallyTimeSpent" value="122278000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -468,7 +482,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="7" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Messages" order="1" weight="0.32761312" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -476,20 +489,21 @@
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3293745" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32605305" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.32761312" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.14820592" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="right" id="Flutter Outline" order="1" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.48955917" visible="true" weight="0.29216152" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.66614664" visible="true" weight="0.2969121" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info id="Structure" order="6" sideWeight="0.5104408" side_tool="true" visible="true" weight="0.29216152" />
+      <window_info id="Structure" order="6" sideWeight="0.33385336" side_tool="true" visible="true" weight="0.2969121" />
       <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3989455" />
       <window_info anchor="right" id="Flutter Inspector" order="4" weight="0.32858273" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32761312" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -513,7 +527,9 @@
     <MESSAGE value="GUI tested For Complete vs Complete" />
     <MESSAGE value="updated gui with fullscreen" />
     <MESSAGE value="updated gui with cool sounde effects :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated gui with cool sounde effects :D" />
+    <MESSAGE value="added creation of Nstate after reading the input file" />
+    <MESSAGE value="fixed error on creation of Nstate after reading the input file" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error on creation of Nstate after reading the input file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -544,8 +560,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/out/production/RiskGame/Gui/FXMLDocument.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Gui/CategoryChooserController.java" />
     <entry file="file://$PROJECT_DIR$/src/out/production/build/floyd/warshall/main.css" />
     <entry file="file://$PROJECT_DIR$/src/out/production/build/floyd/warshall/FXMLDocument.fxml" />
     <entry file="file://$PROJECT_DIR$/src/Gui/CategoryChooser.fxml" />
@@ -718,21 +732,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/InputReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-928">
-          <caret line="115" column="63" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5403#5404#0" expanded="true" />
-            <element signature="e#5434#5435#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
+        <state relative-caret-position="495">
           <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -742,32 +744,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/SContinent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="120">
           <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/SCountry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="165">
           <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/InputReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/battle-music.mp3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/GreedyAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2413">
-          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+        <state relative-caret-position="556">
+          <caret line="221" column="1" selection-start-line="221" selection-start-column="1" selection-end-line="221" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
