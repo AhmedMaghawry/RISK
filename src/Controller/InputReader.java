@@ -53,7 +53,7 @@ public class InputReader {
 //                   continue;
                lines.add(line);
            }
-
+            NState.globalState = new NState();
             verticesNum = Integer.parseInt(lines.get(0).split(" ")[1]);
             edgesNum = Integer.parseInt(lines.get(1).split(" ")[1]);
             continentsNum = Integer.parseInt(lines.get(edgesNum+verticesNum+4).split(" ")[1]);
@@ -69,7 +69,7 @@ public class InputReader {
             readArmies();
             readContinents();
 
-
+            printSuccssors();
 
 
 
@@ -198,5 +198,22 @@ public class InputReader {
     public List<Country> getVertices() {
         return vertices;
     }
+    public void printSuccssors(){
+        for (NState ss : NState.globalState.getSuccssors()) {
+            System.out.println("-------------------------------\n");
+            for (SCountry sc : ss.allCountries)
+                System.out.println("country (" + sc.id + ")  owner : " + sc.owner + "number ar  :" + sc.numberArmies);
 
+            System.out.println(" mine : ");
+            for (int i : ss.myCountries)
+                System.out.print(i + " ,");
+            System.out.println("\n oppen : ");
+            for (int i : ss.opponentCountris)
+                System.out.print(i + " ,");
+            if (ss.attack != null)
+                System.out.println("\n+" + ss.attack.getKey() + "  attack   " + ss.attack.getValue());
+            if (ss.place != null)
+                System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
+        }
+    }
 }
