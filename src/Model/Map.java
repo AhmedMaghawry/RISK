@@ -21,7 +21,16 @@ public class Map {
     public void addContinent(Continent continent) {
         continents.add(continent);
     }
+
     public List<Continent> getContinents() {
         return continents;
+    }
+
+    public void setContinents(List<Continent> continents) {
+        this.continents = continents;
+    }
+
+    public static void setGraph(Map graph) {
+        Map.graph = graph;
     }
 }

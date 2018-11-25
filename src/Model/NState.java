@@ -13,9 +13,10 @@ public class NState {
     public Pair<Integer, Integer> place;
     public Pair<Integer, Integer> attack;
     public int damage;
-    public NState parent;
+    public int turn = 1;
+    public NState parent = null;
     public Pair<Integer, Integer> oppenentPlace;
-    public  static  NState globalState;
+    public static  NState globalState;
     public NState() {
         allCountries = new ArrayList<>();
         myCountries = new ArrayList<>();
@@ -38,7 +39,6 @@ public class NState {
         // add opponent bounce
         if(!opponentCountris.isEmpty())
             addOpponentBounce();
-
     }
 
     public int getOpponentBounce() {
@@ -86,6 +86,7 @@ public class NState {
                 NState s = (NState) this.clone();
                 s.attack = p;
                 s.place = tempPlace;
+                s.parent = this;
                 s.performAttack();
                 successors.add(s);
 
@@ -104,6 +105,7 @@ public class NState {
                 NState s = (NState) this.clone();
                 s.attack = p;
                 s.place = tempPlace;
+                s.parent = this;
                 s.performAttack();
                 successors.add(s);
                 canNotAttack = false;
@@ -111,6 +113,7 @@ public class NState {
             if (canNotAttack) {
                 NState s = (NState) this.clone();
                 s.place = tempPlace;
+                s.parent = this;
                 successors.add(s);
             }
             c.numberArmies -= bounse;
@@ -209,14 +212,5 @@ public class NState {
                 System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
         }
         System.out.println("\n       You win");
-
-        // List<Integer>ss =new ArrayList<>();
-        // for (int i = 10; i > 0; i--) {
-        // ss.add(i);
-        // }
-        // System.out.println(ss.remove(7));
-        // for (int i :ss) {
-        // System.out.println(i+" ");
-        // }
     }
 }

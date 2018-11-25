@@ -1,6 +1,9 @@
 package Model;
 
+import javafx.util.Pair;
+
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AggressiveAgent extends Agent {
@@ -27,29 +30,18 @@ public class AggressiveAgent extends Agent {
 
 	@Override
 	public boolean attack() {
-
-		List<Country> Allcountries = getAllcountries();
-		List<Point> AllEdges = getAllEdges();
-		Point result = null;
-		int tempDamage = 0;
-		for (Point edge : AllEdges)
-			if (Allcountries.get(edge.x).getOwner().equals(this) || Allcountries.get(edge.y).getOwner().equals(this)) {
-				int remain;
-				if (Allcountries.get(edge.x).getOwner().equals(this))
-					remain = Allcountries.get(edge.x).getNumberArmies() - Allcountries.get(edge.y).getNumberArmies();
-				else
-					remain = Allcountries.get(edge.x).getNumberArmies() - Allcountries.get(edge.y).getNumberArmies();
-				int damage = Math.min(Allcountries.get(edge.x).getNumberArmies(),
-						Allcountries.get(edge.y).getNumberArmies());
-				if (remain > 1 && damage > tempDamage) {
-					tempDamage = damage;
-					result = edge;
-				}
+		List<Pair<Country, Country>> avalibleAttacks = new ArrayList<>();
+		for(Country c :getCountriesOwned()){
+			avalibleAttacks.addAll(c.getAvalibleAttacks());
+		}
+		int max_damage=0;
+		Pair<Country, Country> best_attack=null;
+		for(Pair<Country, Country> p :avalibleAttacks)
+			if(p.getValue().getNumberArmies()>max_damage){
+				best_attack=p;
+				max_damage=p.getValue().getNumberArmies();
 			}
-		if(result == null)
-			return false ;
-		return true;
-
+		return attack(best_attack.getKey(),best_attack.getValue());
 	}
 
 	@Override

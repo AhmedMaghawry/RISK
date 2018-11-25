@@ -8,7 +8,6 @@ public class GreedyAgent extends Agent{
 
     public GreedyAgent() {
         super(AgentType.Greedy);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -46,6 +45,4 @@ public class GreedyAgent extends Agent{
         }
         return game;
     }
-
-
 }

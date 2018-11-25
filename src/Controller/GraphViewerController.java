@@ -68,9 +68,9 @@ public class GraphViewerController implements Initializable {
 
     private ArrayList<Integer> countryBordersX = new ArrayList<>();
     private ArrayList<Integer> countryBordersY= new ArrayList<>();
-    private Media sound = new Media(new File("battle-music.mp3").toURI().toString());
+    //private Media sound = new Media(new File("battle-music.mp3").toURI().toString());
 
-    private MediaPlayer mediaPlayer = new MediaPlayer(sound);
+   // private MediaPlayer mediaPlayer = new MediaPlayer(sound);
     private int verticesNum = InputReader.getIntance().getVertices().size();
     private boolean doeshaveedges [][];
     private List<Country> adjCountries = new ArrayList<>();
@@ -88,8 +88,8 @@ public class GraphViewerController implements Initializable {
     private  Stage stage;
     private String color1 ="#4A148C";
     private String color2=  "#3090C7";
-    private Media adavnceSound = new Media(new File("advance-shout.wav").toURI().toString());
-    private Media fireSound = new Media(new File("fire-shout.wav").toURI().toString());
+//    private Media adavnceSound = new Media(new File("advance-shout.wav").toURI().toString());
+  //  private Media fireSound = new Media(new File("fire-shout.wav").toURI().toString());
 
     @FXML
     private AnchorPane pane;
@@ -259,8 +259,8 @@ public class GraphViewerController implements Initializable {
     }
 
     public void placeButtonAction(ActionEvent actionEvent) {
-        MediaPlayer advancePlayer = new MediaPlayer(adavnceSound);
-        advancePlayer.play();
+        //MediaPlayer advancePlayer = new MediaPlayer(adavnceSound);
+        //advancePlayer.play();
         placeButton.setDisable(true);
         if(isplayer1Turn){
             Agent.player1.place();
@@ -292,8 +292,8 @@ public class GraphViewerController implements Initializable {
     public void attackButtonAction(ActionEvent actionEvent) {
 
 
-        MediaPlayer firePlayer = new MediaPlayer(fireSound);
-        firePlayer.play();
+        //MediaPlayer firePlayer = new MediaPlayer(fireSound);
+        //firePlayer.play();
         attackButton.setDisable(true);
         if(isplayer1Turn){
             Agent.player1.attack();
@@ -420,12 +420,12 @@ public void hideCountries(){
 
         }
     }
-    void playBackMusic(){
+    /*void playBackMusic(){
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             public void run() {
                 mediaPlayer.seek(Duration.ZERO);
             }
         });
         mediaPlayer.play();
-    }
+    }*/
 }

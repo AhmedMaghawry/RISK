@@ -165,4 +165,36 @@ public abstract class Agent {
     public int getNumberOfArmies() {
         return numberOfArmies;
     }
+
+    public void setBounceValue(int bounceValue) {
+        this.bounceValue = bounceValue;
+    }
+
+    public AgentType getType() {
+        return type;
+    }
+
+    public void setType(AgentType type) {
+        this.type = type;
+    }
+
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public AgentState getState() {
+        return state;
+    }
+
+    public void setState(AgentState state) {
+        this.state = state;
+    }
+
+    public void setNumberOfArmies(int numberOfArmies) {
+        this.numberOfArmies = numberOfArmies;
+    }
 }
