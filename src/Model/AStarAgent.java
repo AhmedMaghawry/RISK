@@ -75,8 +75,9 @@ public class AStarAgent extends Agent {
         int heuristic_h = 0;
         /*if (state.attack == null)
             System.out.println("HRRRRRRRRRRRRR " + state.place.getKey() + " Place " + state.place.getValue() + " Attack From " + state.turn);*/
+        int saedBounce = state.getAvailableAttacks().size() + state.getMyBounce();
         if (state.attack == null)
-            return 0;
+            return saedBounce;
         SContinent continentHappenAttack = getSContinent(state.continents, state.attack.getValue());
         int num = getEnemiesAtContinent(continentHappenAttack, state.allCountries) + 1;
         /*if (num == 0) {
@@ -91,7 +92,7 @@ public class AStarAgent extends Agent {
             gainFromAttack = getGain(getSCountry(state.place.getKey(), state.allCountries).numberArmies, getSCountry(state.attack.getValue(), state.allCountries).numberArmies, state.place.getValue());
         else
             gainFromAttack = getGain(getSCountry(prev.place.getKey(), prev.allCountries).numberArmies, getSCountry(prev.attack.getValue(), prev.allCountries).numberArmies, state.place.getValue());
-        heuristic_h = (int)Math.ceil(first_part) + gainFromAttack;
+        heuristic_h = (int)Math.ceil(first_part) + gainFromAttack + saedBounce;
         return heuristic_h;
     }
 
@@ -128,7 +129,7 @@ public class AStarAgent extends Agent {
     }
 
     public int evaluate_f(NState state) {
-        return evaluate_h(state) - state.turn;
+        return evaluate_h(state) - state.turn * state.allCountries.size();
     }
 
     public void setCurrentState(NState currentState) {

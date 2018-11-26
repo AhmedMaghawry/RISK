@@ -71,10 +71,7 @@ public class NState {
 
     public List<NState> getSuccssors() {
         List<NState> successors = new ArrayList<>();
-        List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
-        /*for (int index : myCountries) {
-            avalibleAttacks.addAll(allCountries.get(index).getAvalibleAttacks(allCountries));
-        }*/
+        List<Pair<Integer, Integer>> avalibleAttacks = getAvailableAttacks();
 
         for (int index : myCountries) {
             SCountry c = allCountries.get(index);
@@ -212,5 +209,13 @@ public class NState {
                 System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
         }
         System.out.println("\n       You win");
+    }
+
+    public List<Pair<Integer, Integer>> getAvailableAttacks() {
+        List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
+        for (int index : myCountries) {
+            avalibleAttacks.addAll(allCountries.get(index).getAvalibleAttacks(allCountries));
+        }
+        return avalibleAttacks;
     }
 }
