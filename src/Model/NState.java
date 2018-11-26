@@ -72,9 +72,9 @@ public class NState {
     public List<NState> getSuccssors() {
         List<NState> successors = new ArrayList<>();
         List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
-        for (int index : myCountries) {
+        /*for (int index : myCountries) {
             avalibleAttacks.addAll(allCountries.get(index).getAvalibleAttacks(allCountries));
-        }
+        }*/
 
         for (int index : myCountries) {
             SCountry c = allCountries.get(index);

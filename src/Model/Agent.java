@@ -28,7 +28,7 @@ public abstract class Agent {
     public Agent(AgentType agentType){
         this.type = agentType;
         state = AgentState.Alive;
-        bounceValue = 2;
+        bounceValue = 3;
         agentId = generateId();
         numberOfArmies = 0;
         countriesOwned = new ArrayList<>();
@@ -47,7 +47,7 @@ public abstract class Agent {
     }
     
     public int getBounceValue() {
-		return bounceValue;
+        return bounceValue;
 	}
 
     public boolean isAlive() {
@@ -80,6 +80,7 @@ public abstract class Agent {
 
     public void addCountry(Country country) {
         countriesOwned.add(country);
+        bounceValue = Math.max(bounceValue, countriesOwned.size() / 3);
         country.setOwner(this);
         if (country.getContinentOwned().isSingleOwner(countriesOwned))
             addBounce(country.getContinentOwned().getBounceAdd());
@@ -142,10 +143,11 @@ public abstract class Agent {
             to.getOwner().subCountry(to);
             addCountry(to);
             newCountryBounce = 2;
-        } else {
-            subArmies(from.getNumberArmies());
+        }else {
+            /*subArmies(from.getNumberArmies());
             from.setNumberArmies(0);
-            subCountry(from);
+            subCountry(from);*/
+            return false;
         }
         return true;
     }

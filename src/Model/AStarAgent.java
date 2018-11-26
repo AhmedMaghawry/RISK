@@ -18,7 +18,8 @@ public class AStarAgent extends Agent {
 
     @Override
     public boolean attack() {
-        return attack(getCountry(currentState.attack.getKey()), getCountry(currentState.attack.getValue()));
+        boolean res = attack(getCountry(currentState.attack.getKey()), getCountry(currentState.attack.getValue()));
+        return res;
     }
 
     private Country getCountry(Integer key) {

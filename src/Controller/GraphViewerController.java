@@ -277,15 +277,15 @@ public class GraphViewerController implements Initializable {
             //Player2Turn.setDisable(true);
             //isplayer2Turn = false;
         }
-            PauseTransition pause = new PauseTransition(
+            /*PauseTransition pause = new PauseTransition(
                     Duration.seconds(2)
                     );
             pause.setOnFinished(event -> {
             //    playBackMusic();
                 attackButton.setDisable(false);
             });
-            pause.play();
-
+            pause.play();*/
+        attackButton.setDisable(false);
 
     }
 
@@ -324,15 +324,15 @@ public class GraphViewerController implements Initializable {
             //isplayer2Turn = false;
         }
 
-        PauseTransition pause = new PauseTransition(
+        /*PauseTransition pause = new PauseTransition(
                 Duration.seconds(2)
         );
         pause.setOnFinished(event -> {
             nextTurnButton.setDisable(false);
          //   playBackMusic();
         });
-        pause.play();
-
+        pause.play();*/
+        nextTurnButton.setDisable(false);
     }
 
     private void win(String player) throws IOException {
