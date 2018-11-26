@@ -145,72 +145,7 @@ public class NState {
             clone.add(i.intValue());
         return clone;
     }
-
-    public static void main(String[] args) {
-
-        NState s = new NState();
-        List<SCountry> allCountries = new ArrayList<>();
-        List<Integer> myCountries = new ArrayList<>(), opponentCountris = new ArrayList<>();
-        ;
-        List<SContinent> continents = new ArrayList<>();
-
-        SContinent c = new SContinent();
-        c.bounse = 5;
-        c.countries.add(1);
-        c.countries.add(2);
-        continents.add(c);
-        c = new SContinent();
-        c.bounse = 3;
-        c.countries.add(3);
-        c.countries.add(4);
-        continents.add(c);
-        for (int i = 0; i < 5; i++) {
-            SCountry cc = new SCountry(i);
-            cc.numberArmies = i * 2;
-            allCountries.add(cc);
-        }
-        allCountries.get(1).adj.add(2);
-        allCountries.get(2).adj.add(3);
-        allCountries.get(3).adj.add(4);
-        allCountries.get(2).adj.add(1);
-        allCountries.get(3).adj.add(2);
-        allCountries.get(4).adj.add(3);
-        allCountries.get(1).adj.add(3);
-        allCountries.get(3).adj.add(1);
-
-        myCountries.add(1);
-        myCountries.add(4);
-        allCountries.get(1).owner = 1;
-        allCountries.get(4).owner = 1;
-        opponentCountris.add(2);
-        opponentCountris.add(3);
-        allCountries.get(2).owner = 2;
-        allCountries.get(3).owner = 2;
-        s.allCountries = allCountries;
-        s.myCountries = opponentCountris;
-        s.opponentCountris = myCountries;
-        s.continents = continents;
-
-        GreedyAgent g=new GreedyAgent();
-        for (NState ss : g.generate_game(s)) {
-            System.out.println("-------------------------------\n");
-            for (SCountry sc : ss.allCountries)
-                System.out.println("country (" + sc.id + ")  owner : " + sc.owner + "number ar  :" + sc.numberArmies);
-
-            System.out.println(" mine : ");
-            for (int i : ss.myCountries)
-                System.out.print(i + " ,");
-            System.out.println("\n oppen : ");
-            for (int i : ss.opponentCountris)
-                System.out.print(i + " ,");
-            if (ss.attack != null)
-                System.out.println("\n+" + ss.attack.getKey() + "  attack   " + ss.attack.getValue());
-            if (ss.place != null)
-                System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
-        }
-        System.out.println("\n       You win");
-    }
-
+    
     public List<Pair<Integer, Integer>> getAvailableAttacks() {
         List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
         for (int index : myCountries) {
@@ -218,4 +153,71 @@ public class NState {
         }
         return avalibleAttacks;
     }
+
+//    public static void main(String[] args) {
+//
+//        NState s = new NState();
+//        List<SCountry> allCountries = new ArrayList<>();
+//        List<Integer> myCountries = new ArrayList<>(), opponentCountris = new ArrayList<>();
+//        ;
+//        List<SContinent> continents = new ArrayList<>();
+//
+//        SContinent c = new SContinent();
+//        c.bounse = 5;
+//        c.countries.add(1);
+//        c.countries.add(2);
+//        continents.add(c);
+//        c = new SContinent();
+//        c.bounse = 3;
+//        c.countries.add(3);
+//        c.countries.add(4);
+//        continents.add(c);
+//        for (int i = 0; i < 5; i++) {
+//            SCountry cc = new SCountry(i);
+//            cc.numberArmies = i * 2;
+//            allCountries.add(cc);
+//        }
+//        allCountries.get(1).adj.add(2);
+//        allCountries.get(2).adj.add(3);
+//        allCountries.get(3).adj.add(4);
+//        allCountries.get(2).adj.add(1);
+//        allCountries.get(3).adj.add(2);
+//        allCountries.get(4).adj.add(3);
+//        allCountries.get(1).adj.add(3);
+//        allCountries.get(3).adj.add(1);
+//
+//        myCountries.add(1);
+//        myCountries.add(4);
+//        allCountries.get(1).owner = 1;
+//        allCountries.get(4).owner = 1;
+//        opponentCountris.add(2);
+//        opponentCountris.add(3);
+//        allCountries.get(2).owner = 2;
+//        allCountries.get(3).owner = 2;
+//        s.allCountries = allCountries;
+//        s.myCountries = opponentCountris;
+//        s.opponentCountris = myCountries;
+//        s.continents = continents;
+//
+//        GreedyAgent g=new GreedyAgent(new  ArrayList<>());
+//        g.simulateGame(s);
+//        for (NState ss : g.game) {
+//            System.out.println("-------------------------------\n");
+//            for (SCountry sc : ss.allCountries)
+//                System.out.println("country (" + sc.id + ")  owner : " + sc.owner + "number ar  :" + sc.numberArmies);
+//
+//            System.out.println(" mine : ");
+//            for (int i : ss.myCountries)
+//                System.out.print(i + " ,");
+//            System.out.println("\n oppen : ");
+//            for (int i : ss.opponentCountris)
+//                System.out.print(i + " ,");
+//            if (ss.attack != null)
+//                System.out.println("\n+" + ss.attack.getKey() + "  attack   " + ss.attack.getValue());
+//            if (ss.place != null)
+//                System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
+//        }
+//        System.out.println("\n       You win");
+//    }
+
 }

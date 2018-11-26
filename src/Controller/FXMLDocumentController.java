@@ -95,6 +95,14 @@ public class FXMLDocumentController implements Initializable {
                 ((AStarAgent)Agent.player1).setCurrentState(NState.globalState);
             if (agent2Type.equals("A_Search"))
                 ((AStarAgent)Agent.player2).setCurrentState(NState.globalState);
+            if (agent1Type.equals("A_Real"))
+            	((AStarAgent)Agent.player1).setCurrentState(NState.globalState);
+            if (agent2Type.equals("A_Real"))
+            	((AStarAgent)Agent.player2).setCurrentState(NState.globalState);
+            if (agent1Type.equals("Greedy"))
+                ((GreedyAgent)Agent.player1).setCurrentState(NState.globalState);
+            if (agent2Type.equals("Greedy"))
+                ((GreedyAgent)Agent.player2).setCurrentState(NState.globalState);
             System.out.println(Agent.player1.getBounceValue());
             AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
             rootPane.getChildren().setAll(temp);
@@ -156,7 +164,13 @@ public class FXMLDocumentController implements Initializable {
                 Agent.player1 = new NearlyPacifistAgent();
                 break;
             case "A_Search":
-                Agent.player1 = new AStarAgent(InputReader.getIntance().getVertices());
+                Agent.player1 = new AStarAgent(InputReader.getIntance().getVertices(),Integer.MAX_VALUE);
+                break;
+            case "A_Real":
+                Agent.player1 = new AStarAgent(InputReader.getIntance().getVertices(),3);
+                break;
+            case "Greedy":
+                Agent.player1 = new GreedyAgent(InputReader.getIntance().getVertices());
                 break;
         }
         switch (playerType2){
@@ -170,7 +184,13 @@ public class FXMLDocumentController implements Initializable {
                 Agent.player2 = new NearlyPacifistAgent();
                 break;
             case "A_Search":
-                Agent.player2 = new AStarAgent(InputReader.getIntance().getVertices());
+                Agent.player2 = new AStarAgent(InputReader.getIntance().getVertices(),Integer.MAX_VALUE);
+                break;
+            case "A_Real":
+                Agent.player2 = new AStarAgent(InputReader.getIntance().getVertices(),3);
+                break;
+            case "Greedy":
+                Agent.player2 = new GreedyAgent(InputReader.getIntance().getVertices());
                 break;
         }
     }
