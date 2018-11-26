@@ -1,0 +1,33 @@
+
+
+.jfx-snackbar-content{
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 30 10 30 10;
+}
+
+.jfx-snackbar-toast{
+    -fx-text-fill: #ffffff;
+}
+
+.text-color{
+    -fx-fill: white;
+   
+}
+
+.toggle-button {
+    -fx-graphic: url('/View/icons/icons-expand.png');
+    -fx-background-color: null;
+
+}
+
+.toggle-button:selected {
+    -fx-graphic: url('/View/icons/icons-collapse.png');
+    -fx-background-color: null;
+}
+.combo-box .cell {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-focus-color: null;
+    -fx-background-color:  #1A237E;
+
+}
