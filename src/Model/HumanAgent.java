@@ -24,11 +24,6 @@ public class HumanAgent extends Agent {
     }
 
     @Override
-    public boolean move() {
-        return false;
-    }
-
-    @Override
     public boolean place() {
         return false;
     }

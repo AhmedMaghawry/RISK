@@ -16,6 +16,7 @@ public abstract class Agent {
     private String agentId;
     private AgentState state;
     private int numberOfArmies;
+    private int turns = 0;
     private List<Country> countriesOwned;
     private static  List<Country> Allcountries;
     private static  List<Point> AllEdges;
@@ -35,7 +36,6 @@ public abstract class Agent {
     }
 
     public abstract boolean attack();
-    public abstract boolean move();
     public abstract boolean place();
 
     public void addBounce(int bounceValue) {
@@ -120,6 +120,7 @@ public abstract class Agent {
 	}
 
     protected boolean attack(Country from, Country to) {
+        turns++;
         if (from == null || to == null || from.getOwner() == null)
             return false;
 
@@ -198,5 +199,9 @@ public abstract class Agent {
 
     public void setNumberOfArmies(int numberOfArmies) {
         this.numberOfArmies = numberOfArmies;
+    }
+
+    public int getTurns() {
+        return turns;
     }
 }

@@ -4,7 +4,6 @@ public class CompletelyPassiveAgent extends Agent {
 
 	public CompletelyPassiveAgent() {
 		super(AgentType.Completely_Passive);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -12,11 +11,6 @@ public class CompletelyPassiveAgent extends Agent {
 		return true;
 	}
 
-	@Override
-	public boolean move() {
-		// TODO Auto-generated method stub
-		return true;
-	}
 
 	@Override
 	public boolean place() {

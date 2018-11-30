@@ -88,18 +88,22 @@ public class FXMLDocumentController implements Initializable {
         if (selectedFile != null) {
              agent1Type = Agent1.getSelectionModel().getSelectedItem().toString();
              agent2Type = Agent2.getSelectionModel().getSelectedItem().toString();
-            determinePlayersType(agent1Type,agent2Type);
+             determinePlayersType(agent1Type,agent2Type);
             InputReader.getIntance().addFile(selectedFile);
             InputReader.getIntance().readInput();
             if (agent1Type.equals("A_Search"))
                 ((AStarAgent)Agent.player1).setCurrentState(NState.globalState);
             else if (agent1Type.equals("A_Real"))
                 ((RTAStartAgent)Agent.player1).setCurrentState(NState.globalState);
+            else if (agent1Type.equals("Greedy"))
+                ((GreedyAgent)Agent.player1).setCurrentState(NState.globalState);
 
             if (agent2Type.equals("A_Search"))
                 ((AStarAgent)Agent.player2).setCurrentState(NState.globalState);
             else if (agent2Type.equals("A_Real"))
                 ((RTAStartAgent)Agent.player2).setCurrentState(NState.globalState);
+            else if (agent2Type.equals("Greedy"))
+                ((GreedyAgent)Agent.player2).setCurrentState(NState.globalState);
 
             System.out.println(Agent.player1.getBounceValue());
             AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
@@ -132,7 +136,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> list1 = FXCollections.observableArrayList(    "Human", "Completely_Passive", "Aggressive", "Nearly_Pacifist", "Greedy", "A_Search", "A_Real");
-        ObservableList<String> list2 = FXCollections.observableArrayList("Completely_Passive", "Aggressive", "Nearly_Pacifist", "Greedy", "A_Search", "A_Real");
+        ObservableList<String> list2 = FXCollections.observableArrayList("Completely_Passive", "Aggressive", "Nearly_Pacifist");
         Agent1.setItems(list1);
         Agent2.setItems(list2);
 
@@ -161,6 +165,9 @@ public class FXMLDocumentController implements Initializable {
             case "Nearly_Pacifist":
                 Agent.player1 = new NearlyPacifistAgent();
                 break;
+            case "Greedy":
+                Agent.player1 = new GreedyAgent(InputReader.getIntance().getVertices());
+                break;
             case "A_Search":
                 Agent.player1 = new AStarAgent(InputReader.getIntance().getVertices());
                 break;
@@ -177,6 +184,9 @@ public class FXMLDocumentController implements Initializable {
                 break;
             case "Nearly_Pacifist":
                 Agent.player2 = new NearlyPacifistAgent();
+                break;
+            case "Greedy":
+                Agent.player2 = new GreedyAgent(InputReader.getIntance().getVertices());
                 break;
             case "A_Search":
                 Agent.player2 = new AStarAgent(InputReader.getIntance().getVertices());

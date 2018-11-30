@@ -5,9 +5,7 @@
  */
 package Controller;
 
-import Model.Agent;
-import Model.Continent;
-import Model.Country;
+import Model.*;
 import Model.Map;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.PauseTransition;
@@ -341,9 +339,24 @@ public class GraphViewerController implements Initializable {
         alert.setHeaderText("Winner");
         alert.setContentText("Congratulations " + player + " Wins");
 
+        if (Agent.player1.getType() == AgentType.A_Search)
+            displayPerformance(Agent.player1.getTurns(), ((AStarAgent)Agent.player1).getT());
+        else if (Agent.player1.getType() == AgentType.A_Real)
+            displayPerformance(Agent.player1.getTurns(), ((RTAStartAgent)Agent.player1).getT());
+        else if (Agent.player1.getType() == AgentType.Greedy)
+            displayPerformance(Agent.player1.getTurns(), ((GreedyAgent)Agent.player1).getT());
+
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             exit(0);
+        }
+    }
+
+    private void displayPerformance(int turns, int t) {
+        int[] f = {1, 10, 1000};
+        for (int i : f) {
+            int performance = i * turns + t;
+            System.out.println("The Performance at f = " + i + " is " + performance);
         }
     }
 

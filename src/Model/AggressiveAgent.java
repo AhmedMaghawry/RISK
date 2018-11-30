@@ -10,7 +10,6 @@ public class AggressiveAgent extends Agent {
 
 	public AggressiveAgent() {
 		super(AgentType.Aggressive);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -42,12 +41,6 @@ public class AggressiveAgent extends Agent {
 				max_damage=p.getValue().getNumberArmies();
 			}
 		return attack(best_attack.getKey(),best_attack.getValue());
-	}
-
-	@Override
-	public boolean move() {
-		// TODO Auto-generated method stub
-		return true;
 	}
 
 }

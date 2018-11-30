@@ -10,6 +10,8 @@ public class AStarAgent extends Agent {
 
     private NState currentState;
     private List<Country> countries;
+    private int t = 0;
+    private boolean first = true;
 
     public AStarAgent(List<Country> countries) {
         super(AgentType.A_Search);
@@ -28,11 +30,6 @@ public class AStarAgent extends Agent {
                 return country;
         }
         return null;
-    }
-
-    @Override
-    public boolean move() {
-        return false;
     }
 
     @Override
@@ -58,6 +55,8 @@ public class AStarAgent extends Agent {
 
         while (!state.opponentCountris.isEmpty()) {
             state=heap.remove();
+            if (first)
+                t++;
             if (state.oppenentPlace == null)
                 break;
             for (NState ns :state.getSuccssors()){
@@ -68,6 +67,7 @@ public class AStarAgent extends Agent {
 
         while (state.parent != null)
             state = state.parent;
+        first = false;
         return state;
     }
 
@@ -128,5 +128,9 @@ public class AStarAgent extends Agent {
 
     public void setCurrentState(NState currentState) {
         this.currentState = currentState;
+    }
+
+    public int getT() {
+        return t;
     }
 }

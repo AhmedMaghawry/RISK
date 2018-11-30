@@ -41,11 +41,6 @@ public class NearlyPacifistAgent extends Agent {
         }*/
 
     @Override
-    public boolean move() {
-        return false;
-    }
-
-    @Override
     public boolean place() {
         Country temp = getCountriesOwned().get(0);
         for (Country c : getCountriesOwned())
