@@ -76,7 +76,7 @@ public class GraphViewerController implements Initializable {
     private ArrayList<Integer> countryBordersY= new ArrayList<>();
     private Media sound = new Media(new File("battle-music.mp3").toURI().toString());
 
-    private MediaPlayer mediaPlayer = new MediaPlayer(sound);
+//    private MediaPlayer mediaPlayer = new MediaPlayer(sound);
     private int verticesNum = InputReader.getIntance().getVertices().size();
     private boolean doeshaveedges [][];
     private List<Country> adjCountries = new ArrayList<>();
@@ -124,7 +124,7 @@ public class GraphViewerController implements Initializable {
         if (result.get() == ButtonType.OK){
             exit(0);
         } else {
-           alert.close();
+            alert.close();
         }
 
     }
@@ -230,7 +230,7 @@ public class GraphViewerController implements Initializable {
                 Double y2 = allbtns[j].getLayoutY() + nodeRadius*1.0;
 
                 if (doeshaveedges[i][j]) {
-                   newEdge[i][j] = new Line(x1, y1, x2, y2);
+                    newEdge[i][j] = new Line(x1, y1, x2, y2);
                     Double mx = (x1 + x2) / 2;
                     Double my = (y1 + y2) / 2;
                     Double dnX = y2 - y1;
@@ -258,7 +258,7 @@ public class GraphViewerController implements Initializable {
 //                System.out.println(event.getSceneY());
 //            }
 //        });
-      //  playBackMusic();
+        //  playBackMusic();
         createBorders();
         generateVertices();
         generateEdges();
@@ -320,12 +320,12 @@ public class GraphViewerController implements Initializable {
                             attacktoButtonID = ((JFXButton) source).getId();
                             Country countryFrom = getCountrybyID(Integer.parseInt(attackFromButtonID));
                             Country countryTo = getCountrybyID(Integer.parseInt(attacktoButtonID));
-                           isValidMove = ((HumanAgent)Agent.player1).attack_for_human(countryFrom,countryTo);
-                           if(isValidMove)
+                            isValidMove = ((HumanAgent)Agent.player1).attack_for_human(countryFrom,countryTo);
+                            if(isValidMove)
                                 updatePane();
-                           else{
-                               showupPopupMessage("Invalid action please try again!");
-                           }
+                            else{
+                                showupPopupMessage("Invalid action please try again!");
+                            }
                             attackFromButtonID=null;
                             attacktoButtonID = null;
                         }
@@ -361,13 +361,13 @@ public class GraphViewerController implements Initializable {
         }
         placeButton.setDisable(true);
         PauseTransition pause = new PauseTransition(
-                    Duration.seconds(2)
-                    );
-            pause.setOnFinished(event -> {
+                Duration.seconds(2)
+        );
+        pause.setOnFinished(event -> {
             //    playBackMusic();
-                attackButton.setDisable(false);
-            });
-            pause.play();
+            attackButton.setDisable(false);
+        });
+        pause.play();
 
 
     }
@@ -419,7 +419,7 @@ public class GraphViewerController implements Initializable {
         );
         pause.setOnFinished(event -> {
             nextTurnButton.setDisable(false);
-         //   playBackMusic();
+            //   playBackMusic();
         });
         pause.play();
 
@@ -431,24 +431,9 @@ public class GraphViewerController implements Initializable {
         alert.setHeaderText("Winner");
         alert.setContentText("Congratulations " + player + " Wins");
 
-        if (Agent.player1.getType() == AgentType.A_Search)
-            displayPerformance(Agent.player1.getTurns(), ((AStarAgent)Agent.player1).getT());
-        else if (Agent.player1.getType() == AgentType.A_Real)
-            displayPerformance(Agent.player1.getTurns(), ((RTAStartAgent)Agent.player1).getT());
-        else if (Agent.player1.getType() == AgentType.Greedy)
-            displayPerformance(Agent.player1.getTurns(), ((GreedyAgent)Agent.player1).getT());
-
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             exit(0);
-        }
-    }
-
-    private void displayPerformance(int turns, int t) {
-        int[] f = {1, 10, 1000};
-        for (int i : f) {
-            int performance = i * turns + t;
-            System.out.println("The Performance at f = " + i + " is " + performance);
         }
     }
 
@@ -507,24 +492,24 @@ public class GraphViewerController implements Initializable {
         }
         pane.requestLayout();
     }
-public void hideCountries(){
+    public void hideCountries(){
         for (int i=0;i<verticesNum;i++){
             allbtns[i].setVisible(false);
         }
-    allbtns = new JFXButton[verticesNum];
+        allbtns = new JFXButton[verticesNum];
 
-}
+    }
     public void hideEdges(){
         for (int i=0;i<allPaths.size();i++){
             allPaths.get(i).setVisible(false);
         }
-    allPaths.clear();
+        allPaths.clear();
     }
-   public void clearPane (){
+    public void clearPane (){
         hideCountries();
-       hideEdges();
+        hideEdges();
         pane.requestLayout();
-   }
+    }
     @FXML
     public void toggleAction (ActionEvent e){
         isFullscreen = !isFullscreen;
@@ -542,14 +527,14 @@ public void hideCountries(){
 
         }
     }
-    void playBackMusic(){
+  /*  void playBackMusic(){
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             public void run() {
                 mediaPlayer.seek(Duration.ZERO);
             }
         });
         mediaPlayer.play();
-    }
+    }*/
     void showupPopupMessage(String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Information Alert");
@@ -568,9 +553,9 @@ public void hideCountries(){
         }
     }
     void enableCountryButtons (){
-       for(int i=0;i<allbtns.length;i++){
-           allbtns[i].setDisable(false);
-       }
+        for(int i=0;i<allbtns.length;i++){
+            allbtns[i].setDisable(false);
+        }
     }
     Country getCountrybyID (int id){
         for (int i = 0; i < Map.getIntance().getContinents().size(); i++) {
