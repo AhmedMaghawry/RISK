@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" maxHeight="800.0" maxWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: lightBlue;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GraphViewerController">
+<AnchorPane id="AnchorPane" fx:id="pane" maxHeight="815.0" maxWidth="1400.0" prefHeight="815.0" prefWidth="1400.0" style="-fx-background-color: lightBlue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GraphViewerController">
     <children>
-        <ImageView fitHeight="800.0" fitWidth="1400.0" layoutX="-12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-31.86309814453125" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
+        <ImageView fitHeight="815.0" fitWidth="1400.0" layoutX="-12.0" pickOnBounds="true" AnchorPane.bottomAnchor="-109.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
             <image>
                 <Image url="@icons/map_colored1.png" />
             </image>

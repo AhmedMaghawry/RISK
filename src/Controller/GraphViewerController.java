@@ -9,44 +9,30 @@ import Model.*;
 import Model.Map;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.BorderPaneBuilder;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.io.File;
 import java.util.Collections;
-import java.awt.*;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.exit;
 
@@ -74,7 +60,7 @@ public class GraphViewerController implements Initializable {
 
     private ArrayList<Integer> countryBordersX = new ArrayList<>();
     private ArrayList<Integer> countryBordersY= new ArrayList<>();
-    private Media sound = new Media(new File("battle-music.mp3").toURI().toString());
+    private Media sound = new Media(new File("out/battle-music.mp3").toURI().toString());
 
 //    private MediaPlayer mediaPlayer = new MediaPlayer(sound);
     private int verticesNum = InputReader.getIntance().getVertices().size();
@@ -94,8 +80,8 @@ public class GraphViewerController implements Initializable {
     private  Stage stage;
     private String color1 ="#4A148C";
     private String color2=  "#3090C7";
-    private Media adavnceSound = new Media(new File("advance-shout.wav").toURI().toString());
-    private Media fireSound = new Media(new File("fire-shout.wav").toURI().toString());
+    private Media adavnceSound = new Media(new File("out/advance-shout.wav").toURI().toString());
+    private Media fireSound = new Media(new File("out/fire-shout.wav").toURI().toString());
     private boolean isHuman = false;
     private  ArrayList<Integer> player1Indices = new ArrayList<>();
     private  ArrayList<Integer> player2Indices = new ArrayList<>();
@@ -136,6 +122,7 @@ public class GraphViewerController implements Initializable {
         int m=0;
         doeshaveedges  = new boolean[verticesNum][verticesNum];
         for (int i = 0; i < Map.getIntance().getContinents().size(); i++) {
+
             for (int j = 0; j < Map.getIntance().getContinents().get(i).getCountries().size(); j++) {
                 allbtns[m]= new JFXButton();
                 allbtns[m].setId(String.valueOf(m+1));
@@ -144,6 +131,7 @@ public class GraphViewerController implements Initializable {
                 for(int k = 0; k< adjCountries.size(); k++){
                     doeshaveedges[node.getCountryId()-1][adjCountries.get(k).getCountryId()-1] = true;
                 }
+                allbtns[m].setStyle("-fx-background-radius: 50 50 50 50");
                 allbtns[m].setText(String.valueOf(node.getNumberArmies()));
                 Integer randomNumX = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersX.get(i)),Collections.max(continentsBordersX.get(i)));
                 Integer randomNumY = ThreadLocalRandom.current().nextInt(Collections.min(continentsBordersY.get(i)),Collections.max(continentsBordersY.get(i)));
@@ -151,8 +139,8 @@ public class GraphViewerController implements Initializable {
                 countryBordersY.add(randomNumY);
                 allbtns[m].setLayoutX(randomNumX);
                 allbtns[m].setLayoutY(randomNumY);
-                allbtns[m].setPrefHeight(35);
-                allbtns[m].setPrefWidth(35);
+                allbtns[m].setPrefHeight(30);
+                allbtns[m].setPrefWidth(30);
                 allbtns[m].setTextFill(Color.BLACK);
                 if(node.getOwner() == Agent.player1){
                     allbtns[m].setStyle("-fx-background-color: " + color1 + ";");
@@ -177,39 +165,39 @@ public class GraphViewerController implements Initializable {
     public void createBorders (){
         // North America partion 1
 
-        Integer[] layoutX = new Integer[]{107,318};
-        Integer[] layoutY = new Integer[]{391,155};
+        Integer[] layoutX = new Integer[]{190,380};
+        Integer[] layoutY = new Integer[]{330,175};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
 
         // Asia partitoin 2
-        layoutX = new Integer[]{702,1038};
-        layoutY = new Integer[]{116, 326};
+        layoutX = new Integer[]{820,1130};
+        layoutY = new Integer[]{130, 345};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
         // Africa partitoin 3
-        layoutX = new Integer[]{ 645,537};
-        layoutY = new Integer[]{363,510};
+        layoutX = new Integer[]{ 610,800};
+        layoutY = new Integer[]{335,545};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
         // South America partion 4
-        layoutX = new Integer[]{375,320};
-        layoutY = new Integer[]{608,445};
+        layoutX = new Integer[]{365,465};
+        layoutY = new Integer[]{680,480};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
         // Australia partitoin 5
-        layoutX = new Integer[]{ 939,1038};
-        layoutY = new Integer[]{612,543};
+        layoutX = new Integer[]{ 1090,1200};
+        layoutY = new Integer[]{582,662};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
         // europe partitoin 6
-        layoutX = new Integer[]{ 574,655};
-        layoutY = new Integer[]{158,254};
+        layoutX = new Integer[]{ 670,780};
+        layoutY = new Integer[]{124,285};
         continentsBordersX.add(new ArrayList<>(Arrays.asList(layoutX)));
         continentsBordersY.add(new ArrayList<>(Arrays.asList(layoutY)));
 
@@ -468,9 +456,10 @@ public class GraphViewerController implements Initializable {
                 allbtns[m].setText(String.valueOf(node.getNumberArmies()));
                 allbtns[m].setLayoutX(countryBordersX.get(m));
                 allbtns[m].setLayoutY(countryBordersY.get(m));
-                allbtns[m].setPrefHeight(35);
-                allbtns[m].setPrefWidth(35);
+                allbtns[m].setPrefHeight(30);
+                allbtns[m].setPrefWidth(30);
                 allbtns[m].setTextFill(Color.BLACK);
+                allbtns[m].setStyle("-fx-background-radius: 30 30 30 30");
                 if(node.getOwner() == Agent.player1) {
                     allbtns[m].setStyle("-fx-background-color: " + color1 + ";");
                     allbtns[m].setOnAction(player1Handler);
