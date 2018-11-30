@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/TestsGenerator.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FXMLDocumentController.java" afterPath="$PROJECT_DIR$/src/Controller/FXMLDocumentController.java" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" afterPath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AStarAgent.java" afterPath="$PROJECT_DIR$/src/Model/AStarAgent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Agent.java" afterPath="$PROJECT_DIR$/src/Model/Agent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AggressiveAgent.java" afterPath="$PROJECT_DIR$/src/Model/AggressiveAgent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/CompletelyPassiveAgent.java" afterPath="$PROJECT_DIR$/src/Model/CompletelyPassiveAgent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/GreedyAgent.java" afterPath="$PROJECT_DIR$/src/Model/GreedyAgent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/HumanAgent.java" afterPath="$PROJECT_DIR$/src/Model/HumanAgent.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/NearlyPacifistAgent.java" afterPath="$PROJECT_DIR$/src/Model/NearlyPacifistAgent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -440,7 +430,7 @@
       <workItem from="1543229379278" duration="8949000" />
       <workItem from="1543240831274" duration="1456000" />
       <workItem from="1543330554806" duration="1679000" />
-      <workItem from="1543571162275" duration="14217000" />
+      <workItem from="1543571162275" duration="14279000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit added graph datastructure">
       <created>1542740926249</created>
@@ -540,11 +530,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543580762240</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fully Tested All Agents - Human">
+      <created>1543590174290</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1543590174290</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169421000" />
+    <option name="totallyTimeSpent" value="169483000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -605,7 +602,8 @@
     <MESSAGE value="A start Edited and Work well :)" />
     <MESSAGE value="A start Edited" />
     <MESSAGE value="Final Edit Without Human" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Edit Without Human" />
+    <MESSAGE value="Fully Tested All Agents - Human" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Tested All Agents - Human" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
