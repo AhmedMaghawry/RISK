@@ -73,17 +73,11 @@ public class AStarAgent extends Agent {
 
     private int evaluate_h(NState state) {
         int heuristic_h = 0;
-        /*if (state.attack == null)
-            System.out.println("HRRRRRRRRRRRRR " + state.place.getKey() + " Place " + state.place.getValue() + " Attack From " + state.turn);*/
         int saedBounce = state.getAvailableAttacks().size() + state.getMyBounce();
         if (state.attack == null)
             return saedBounce;
         SContinent continentHappenAttack = getSContinent(state.continents, state.attack.getValue());
         int num = getEnemiesAtContinent(continentHappenAttack, state.allCountries) + 1;
-        /*if (num == 0) {
-            heuristic_h = Integer.MAX_VALUE;
-            return heuristic_h;
-        }*/
         float ratio = (float) (1.0 / num);
         float first_part = ratio * continentHappenAttack.bounse;
         NState prev = state.parent;

@@ -73,7 +73,7 @@ public class NState {
         List<NState> successors = new ArrayList<>();
         List<Pair<Integer, Integer>> avalibleAttacks = getAvailableAttacks();
 
-        for (int index : myCountries) {
+        for (int index : getGoodPlace(myCountries)) {
             SCountry c = allCountries.get(index);
             int bounse = getMyBounce();
             c.numberArmies += bounse;
@@ -120,6 +120,16 @@ public class NState {
 
     }
 
+    private List<Integer> getGoodPlace(List<Integer> myCountries) {
+        List<Integer> res = new ArrayList<>();
+        for (int i : myCountries) {
+            SCountry c = allCountries.get(i);
+            if (c.getAllAttacks(allCountries).size() != 0)
+                res.add(c.id);
+        }
+        return res;
+    }
+
     protected Object clone() {
 
         NState s = new NState();
@@ -146,7 +156,7 @@ public class NState {
         return clone;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         NState s = new NState();
         List<SCountry> allCountries = new ArrayList<>();
@@ -209,7 +219,7 @@ public class NState {
                 System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
         }
         System.out.println("\n       You win");
-    }
+    }*/
 
     public List<Pair<Integer, Integer>> getAvailableAttacks() {
         List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
