@@ -39,15 +39,15 @@ public class Main extends Application {
         stage.show();
         String musicFile = "battle-music.mp3";     // For example
 
-        Media sound = new Media(new File(musicFile).toURI().toString());
+        //Media sound = new Media(new File(musicFile).toURI().toString());
 
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        /*MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             public void run() {
                 mediaPlayer.seek(Duration.ZERO);
             }
         });
-        mediaPlayer.play();
+        mediaPlayer.play();*/
     }
 
     /**

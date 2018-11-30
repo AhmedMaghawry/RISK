@@ -32,6 +32,16 @@ public class SCountry {
         return avalibleAttacks;
     }
 
+    public List<Pair<Integer, Integer>> getAllAttacks(List<SCountry> allCountries) {
+        List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
+        for (int country : adj) {
+            SCountry c = allCountries.get(country);
+            if (c.owner != owner)
+                avalibleAttacks.add(new Pair<>(id, c.id));
+        }
+        return avalibleAttacks;
+    }
+
     protected SCountry clone() {
         SCountry country = new SCountry(id);
         country.owner = owner;

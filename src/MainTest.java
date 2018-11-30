@@ -29,13 +29,13 @@ public class MainTest {
         Continent afr = new Continent(3, afrList);
         Continent ero = new Continent(5, eroList);
 
-        Map map = Map.getIntance();
-        map.addContinent(afr);
-        map.addContinent(ero);
+        //Map map = Map.getIntance(pl);
+        //map.addContinent(afr);
+        //map.addContinent(ero);
 
         print("Map Creation Finished");
 
-        HumanAgent player = new HumanAgent();
+        /*HumanAgent player = new HumanAgent();
         player.addCountry(eg);
         player.addCountry(alg);
         eg.addArmies(5);
@@ -45,9 +45,24 @@ public class MainTest {
         print("The Attack Happen : " + player.attack_for_human(alg, fr));
         print("The Attack Happen : " + player.attack_for_human(alg, fr));
         print("The Attack Happen : " + player.attack_for_human(alg, eng));
-        print("The Attack Happen : " + player.attack_for_human(fr, eng));
+        print("The Attack Happen : " + player.attack_for_human(fr, eng));*/
 
-        print("The Attack Finished");
+        Agent player2 = new CompletelyPassiveAgent();
+        player2.addCountry(fr);
+        player2.addCountry(eng);
+        fr.addArmies(2);
+        eng.addArmies(3);
+
+        /*Agent player = new AStarAgent();
+        player.addCountry(eg);
+        player.addCountry(alg);
+        eg.addArmies(5);
+        alg.addArmies(4);
+
+        player.place();
+        player.attack();
+
+        print("The Attack Finished");*/
     }
 
     public static void print(String s) {

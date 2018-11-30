@@ -100,13 +100,12 @@ public class Country {
         return avalibleAttacks;
     }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Country country = new Country(countryId);
-        country.setOwner(owner);
-        country.setContinentOwned(continentOwned);
-        country.setNumberArmies(numberArmies);
-        country.setAdj(adj);
-        return country;
+    public List<Country> getAllAvalibleAttacks() {
+        List<Country> avalibleAttacks = new ArrayList<>();
+        for (Country c : adj) {
+            if (!c.owner.equals(this.owner))
+                avalibleAttacks.add(c);
+        }
+        return avalibleAttacks;
     }
 }

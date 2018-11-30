@@ -88,10 +88,20 @@ public class FXMLDocumentController implements Initializable {
         if (selectedFile != null) {
              agent1Type = Agent1.getSelectionModel().getSelectedItem().toString();
              agent2Type = Agent2.getSelectionModel().getSelectedItem().toString();
-           determinePlayersType(agent1Type,agent2Type);
-       System.out.println(Agent.player1.getBounceValue());
+            determinePlayersType(agent1Type,agent2Type);
             InputReader.getIntance().addFile(selectedFile);
             InputReader.getIntance().readInput();
+            if (agent1Type.equals("A_Search"))
+                ((AStarAgent)Agent.player1).setCurrentState(NState.globalState);
+            else if (agent1Type.equals("A_Real"))
+                ((RTAStartAgent)Agent.player1).setCurrentState(NState.globalState);
+
+            if (agent2Type.equals("A_Search"))
+                ((AStarAgent)Agent.player2).setCurrentState(NState.globalState);
+            else if (agent2Type.equals("A_Real"))
+                ((RTAStartAgent)Agent.player2).setCurrentState(NState.globalState);
+
+            System.out.println(Agent.player1.getBounceValue());
             AnchorPane temp = FXMLLoader.load(getClass().getResource("/View/GraphViewer.fxml"));
             rootPane.getChildren().setAll(temp);
         }else {
@@ -151,6 +161,12 @@ public class FXMLDocumentController implements Initializable {
             case "Nearly_Pacifist":
                 Agent.player1 = new NearlyPacifistAgent();
                 break;
+            case "A_Search":
+                Agent.player1 = new AStarAgent(InputReader.getIntance().getVertices());
+                break;
+            case "A_Real":
+                Agent.player1 = new RTAStartAgent(InputReader.getIntance().getVertices(), 3);
+                break;
         }
         switch (playerType2){
             case "Completely_Passive":
@@ -161,6 +177,12 @@ public class FXMLDocumentController implements Initializable {
                 break;
             case "Nearly_Pacifist":
                 Agent.player2 = new NearlyPacifistAgent();
+                break;
+            case "A_Search":
+                Agent.player2 = new AStarAgent(InputReader.getIntance().getVertices());
+                break;
+            case "A_Real":
+                Agent.player2 = new RTAStartAgent(InputReader.getIntance().getVertices(), 3);
                 break;
         }
     }

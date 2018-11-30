@@ -12,9 +12,6 @@ import java.util.UUID;
 public abstract class Agent {
 
     private int bounceValue;
-
-
-
     private AgentType type;
     private String agentId;
     private AgentState state;
@@ -31,7 +28,7 @@ public abstract class Agent {
     public Agent(AgentType agentType){
         this.type = agentType;
         state = AgentState.Alive;
-        bounceValue = 2;
+        bounceValue = 3;
         agentId = generateId();
         numberOfArmies = 0;
         countriesOwned = new ArrayList<>();
@@ -50,7 +47,7 @@ public abstract class Agent {
     }
     
     public int getBounceValue() {
-		return bounceValue;
+        return bounceValue;
 	}
 
     public boolean isAlive() {
@@ -83,6 +80,7 @@ public abstract class Agent {
 
     public void addCountry(Country country) {
         countriesOwned.add(country);
+        bounceValue = Math.max(bounceValue, countriesOwned.size() / 3);
         country.setOwner(this);
         if (country.getContinentOwned().isSingleOwner(countriesOwned))
             addBounce(country.getContinentOwned().getBounceAdd());
@@ -145,10 +143,11 @@ public abstract class Agent {
             to.getOwner().subCountry(to);
             addCountry(to);
             newCountryBounce = 2;
-        } else {
-            subArmies(from.getNumberArmies());
+        }else {
+            /*subArmies(from.getNumberArmies());
             from.setNumberArmies(0);
-            subCountry(from);
+            subCountry(from);*/
+            return false;
         }
         return true;
     }
@@ -168,7 +167,36 @@ public abstract class Agent {
     public int getNumberOfArmies() {
         return numberOfArmies;
     }
+
+    public void setBounceValue(int bounceValue) {
+        this.bounceValue = bounceValue;
+    }
+
     public AgentType getType() {
         return type;
+    }
+
+    public void setType(AgentType type) {
+        this.type = type;
+    }
+
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public AgentState getState() {
+        return state;
+    }
+
+    public void setState(AgentState state) {
+        this.state = state;
+    }
+
+    public void setNumberOfArmies(int numberOfArmies) {
+        this.numberOfArmies = numberOfArmies;
     }
 }

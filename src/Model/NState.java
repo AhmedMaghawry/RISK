@@ -13,9 +13,10 @@ public class NState {
     public Pair<Integer, Integer> place;
     public Pair<Integer, Integer> attack;
     public int damage;
-    public NState parent;
+    public int turn = 1;
+    public NState parent = null;
     public Pair<Integer, Integer> oppenentPlace;
-    public  static  NState globalState;
+    public static  NState globalState;
     public NState() {
         allCountries = new ArrayList<>();
         myCountries = new ArrayList<>();
@@ -38,7 +39,6 @@ public class NState {
         // add opponent bounce
         if(!opponentCountris.isEmpty())
             addOpponentBounce();
-
     }
 
     public int getOpponentBounce() {
@@ -71,12 +71,9 @@ public class NState {
 
     public List<NState> getSuccssors() {
         List<NState> successors = new ArrayList<>();
-        List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
-        for (int index : myCountries) {
-            avalibleAttacks.addAll(allCountries.get(index).getAvalibleAttacks(allCountries));
-        }
+        List<Pair<Integer, Integer>> avalibleAttacks = getAvailableAttacks();
 
-        for (int index : myCountries) {
+        for (int index : getGoodPlace(myCountries)) {
             SCountry c = allCountries.get(index);
             int bounse = getMyBounce();
             c.numberArmies += bounse;
@@ -86,6 +83,7 @@ public class NState {
                 NState s = (NState) this.clone();
                 s.attack = p;
                 s.place = tempPlace;
+                s.parent = this;
                 s.performAttack();
                 successors.add(s);
 
@@ -104,6 +102,7 @@ public class NState {
                 NState s = (NState) this.clone();
                 s.attack = p;
                 s.place = tempPlace;
+                s.parent = this;
                 s.performAttack();
                 successors.add(s);
                 canNotAttack = false;
@@ -111,6 +110,7 @@ public class NState {
             if (canNotAttack) {
                 NState s = (NState) this.clone();
                 s.place = tempPlace;
+                s.parent = this;
                 successors.add(s);
             }
             c.numberArmies -= bounse;
@@ -118,6 +118,16 @@ public class NState {
         }
         return successors;
 
+    }
+
+    private List<Integer> getGoodPlace(List<Integer> myCountries) {
+        List<Integer> res = new ArrayList<>();
+        for (int i : myCountries) {
+            SCountry c = allCountries.get(i);
+            if (c.getAllAttacks(allCountries).size() != 0)
+                res.add(c.id);
+        }
+        return res;
     }
 
     protected Object clone() {
@@ -146,7 +156,7 @@ public class NState {
         return clone;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         NState s = new NState();
         List<SCountry> allCountries = new ArrayList<>();
@@ -209,14 +219,13 @@ public class NState {
                 System.out.println("\n" + ss.place.getKey() + " get  " + ss.place.getValue());
         }
         System.out.println("\n       You win");
+    }*/
 
-        // List<Integer>ss =new ArrayList<>();
-        // for (int i = 10; i > 0; i--) {
-        // ss.add(i);
-        // }
-        // System.out.println(ss.remove(7));
-        // for (int i :ss) {
-        // System.out.println(i+" ");
-        // }
+    public List<Pair<Integer, Integer>> getAvailableAttacks() {
+        List<Pair<Integer, Integer>> avalibleAttacks = new ArrayList<>();
+        for (int index : myCountries) {
+            avalibleAttacks.addAll(allCountries.get(index).getAvalibleAttacks(allCountries));
+        }
+        return avalibleAttacks;
     }
 }
