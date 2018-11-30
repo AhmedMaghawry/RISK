@@ -12,6 +12,9 @@ import java.util.UUID;
 public abstract class Agent {
 
     private int bounceValue;
+
+
+
     private AgentType type;
     private String agentId;
     private AgentState state;
@@ -164,5 +167,8 @@ public abstract class Agent {
 
     public int getNumberOfArmies() {
         return numberOfArmies;
+    }
+    public AgentType getType() {
+        return type;
     }
 }
