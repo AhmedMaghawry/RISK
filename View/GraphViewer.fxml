@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" maxHeight="800.0" maxWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: lightBlue;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GraphViewerController">
+    <children>
+        <ImageView fitHeight="800.0" fitWidth="1400.0" layoutX="-12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-31.86309814453125" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@icons/map_colored1.png" />
+            </image>
+        </ImageView>
+          <ImageView fitHeight="117.0" fitWidth="352.0" layoutX="512.0">
+              <image>
+                  <Image url="@icons/Risk-Logo.png" />
+              </image>
+          </ImageView>
+      <Label fx:id="logInfo" alignment="CENTER" layoutX="25.0" layoutY="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" text="Log" textAlignment="JUSTIFY" wrapText="true" />
+        <JFXButton fx:id="startOverButton" buttonType="RAISED" layoutX="1258.0" layoutY="525.0" onAction="#startOverButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: #DD2C00;" text="Quit" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="placeButton" buttonType="RAISED" layoutX="1258.0" layoutY="365.0" onAction="#placeButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Green;" text="Place" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton fx:id="nextTurnButton" buttonType="RAISED" layoutX="1258.0" layoutY="442.0" onAction="#nextTurnButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Blue;" text="Next" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+
+      <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="19.0" layoutY="462.0">
+         <image>
+            <Image url="@icons/player1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="79.0" layoutX="21.0" layoutY="533.0">
+         <image>
+            <Image url="@icons/player2.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="Player1Turn" layoutX="102.0" layoutY="504.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #4A148C; -fx-background-radius: 50 50 50 50;" text="  Player1 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+        <ToggleButton fx:id="toggle" layoutX="10" layoutY="660" maxHeight="50.0" maxWidth="50.0" onAction="#toggleAction" />
+
+        <Label fx:id="Player2Turn" layoutX="102.0" layoutY="576.0" prefHeight="32.0" prefWidth="116.0" style="-fx-background-color: #3090C7; -fx-background-radius: 50 50 50 50;" text="  Player2 turn" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+        <JFXButton fx:id="attackButton" buttonType="RAISED" layoutX="1258.0" layoutY="289.0" onAction="#attackButtonAction" prefHeight="41.0" prefWidth="97.0" style="-fx-background-color: Red;" text="Attack" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+    </children>
+</AnchorPane>
