@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/battle-music.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/RTAStartAgent.java" afterDir="false" />
+    <list default="true" id="8c8e6c93-48d9-43d6-a543-68815eddf708" name="Default" comment="modified continents borders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GraphViewerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GraphViewer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GraphViewer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/advance-shout.wav" beforeDir="false" afterPath="$PROJECT_DIR$/out/advance-shout.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/battle-music.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fire-shout.wav" beforeDir="false" afterPath="$PROJECT_DIR$/out/fire-shout.wav" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="199" column="39" selection-start-line="199" selection-start-column="39" selection-end-line="199" selection-end-column="39" />
+            <state relative-caret-position="735">
+              <caret line="82" column="5" selection-start-line="82" selection-end-line="83" />
             </state>
           </provider>
         </entry>
@@ -73,21 +64,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
+            <state relative-caret-position="1080">
               <caret line="108" selection-start-line="108" selection-end-line="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
-              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+            <state relative-caret-position="307">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1533#1534#0" expanded="true" />
-                <element signature="e#1801#1802#0" expanded="true" />
+                <element signature="e#1715#1716#0" expanded="true" />
+                <element signature="e#1743#1744#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,6 +98,7 @@
             <state relative-caret-position="585">
               <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
               <folding>
+                <element signature="e#1329#1330#0" expanded="true" />
                 <element signature="e#4371#4372#0" expanded="true" />
                 <element signature="e#4395#4396#0" expanded="true" />
               </folding>
@@ -126,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>3</find>
       <find>place</find>
       <find>nearCountries</find>
       <find>nearSCountries</find>
@@ -156,6 +146,7 @@
       <find>amer</find>
       <find>gener</find>
       <find>randomNumX</find>
+      <find>init</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,9 +197,9 @@
         <option value="$PROJECT_DIR$/src/TestsGenerator.java" />
         <option value="$PROJECT_DIR$/src/Model/RTAStartAgent.java" />
         <option value="$PROJECT_DIR$/src/Model/AStarAgent.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/View/GraphViewer.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/GraphViewerController.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -233,7 +224,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -245,6 +235,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,7 +279,7 @@
     <property name="SearchEverywhereHistoryKey" value="file cho&#9;PSI&#9;JAVA://javafx.stage.FileChooser" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543598948697" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544193882375" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Downloads/RISK-Ezzat" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -420,7 +411,8 @@
       <workItem from="1543240831274" duration="1456000" />
       <workItem from="1543330554806" duration="1679000" />
       <workItem from="1543571162275" duration="15101000" />
-      <workItem from="1543591861026" duration="6752000" />
+      <workItem from="1543591861026" duration="7562000" />
+      <workItem from="1544106238312" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit added graph datastructure">
       <created>1542740926249</created>
@@ -541,11 +533,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543590255233</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="modified continents borders">
+      <created>1543598997721</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1543598997721</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177057000" />
+    <option name="totallyTimeSpent" value="178467000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -558,31 +557,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-11" width="1313" height="780" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" weight="0.29328063" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.2980237" />
       <window_info id="Structure" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32713178" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32864675" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.38449612" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.38449612" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3989455" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Maven" weight="0.32964426" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Palette&#9;" order="0" />
       <window_info anchor="right" id="Maven Projects" order="1" />
       <window_info anchor="right" id="Database" order="2" />
@@ -590,6 +585,9 @@
       <window_info anchor="right" id="Commander" order="4" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.32964426" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
     <layout-to-restore>
       <window_info id="Image Layers" order="0" />
@@ -643,7 +641,8 @@
     <MESSAGE value="A start Edited" />
     <MESSAGE value="Final Edit Without Human" />
     <MESSAGE value="Fully Tested All Agents - Human" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Tested All Agents - Human" />
+    <MESSAGE value="modified continents borders" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified continents borders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -784,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,12 +858,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources.properties" />
+    <entry file="file://$PROJECT_DIR$/out/fire-shout.wav">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/battle-music.mp3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/advance-shout.wav">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="ui-designer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/InputReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="82" column="5" selection-start-line="82" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/FXMLDocument.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/GraphViewer.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/HumanAgent.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -874,14 +902,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/AStarAgent.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding>
-            <element signature="e#4371#4372#0" expanded="true" />
-            <element signature="e#4395#4396#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1080">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
         </state>
       </provider>
     </entry>
@@ -892,54 +916,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/fire-shout.wav">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FXMLDocumentController.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/AStarAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/battle-music.mp3">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/advance-shout.wav">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        <state relative-caret-position="585">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
           <folding>
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1801#1802#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#4371#4372#0" expanded="true" />
+            <element signature="e#4395#4396#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/FXMLDocument.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/GraphViewer.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GraphViewerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="199" column="39" selection-start-line="199" selection-start-column="39" selection-end-line="199" selection-end-column="39" />
+        <state relative-caret-position="307">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#1715#1716#0" expanded="true" />
+            <element signature="e#1743#1744#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

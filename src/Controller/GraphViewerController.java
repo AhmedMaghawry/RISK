@@ -81,6 +81,7 @@ public class GraphViewerController implements Initializable {
     private String color1 ="#4A148C";
     private String color2=  "#3090C7";
     private Media adavnceSound = new Media(new File("out/advance-shout.wav").toURI().toString());
+    private Media adavnceSound = new Media(new File("out/advance-shout.wav").toURI().toString());
     private Media fireSound = new Media(new File("out/fire-shout.wav").toURI().toString());
     private boolean isHuman = false;
     private  ArrayList<Integer> player1Indices = new ArrayList<>();
