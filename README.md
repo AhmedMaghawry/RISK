@@ -1,4 +1,7 @@
 # RISK
+
+![Cover](https://github.com/AhmedMaghawry/RISK/blob/master/Images/r1.PNG)
+
 ## Overview :
 - Risk is a complex board game produced by Hasbro that involves both luck and skill. The goal is simple: take over the world. Despite this simple goal, the game is very complicated and dynamic. Players attempt to take over the world by eliminating all other players. Players are eliminated when they lose all of their troops on the game board. Players must be skilled in troop deployment and must be aware of the underlying probabilities present in the game. This paper will discuss the game board, rules, probabilities, and general strategies of the game.
 - In this project implement a simple environment simulator that generates instances of a search problem, runs agent programs, and evaluates their performance according to a simple performance measure. The search problem we will use is a simplified and abstract
@@ -52,6 +55,8 @@ P 2 (number of partition cells)
 3 3 4 ( value of the 2nd partition cell, and its members)
 ```
 ## User Guide :
+
+![Main](https://github.com/AhmedMaghawry/RISK/blob/master/Images/r2.PNG)
 1. At the game start the game the user have to :
 a. choose the type of player 1 and player2 which are Human (assumption only player 1 can be human) , Aggressive , Completely_Passive , Nearly_Pacifist  , A_Search,  A_Real , Greedy
 b. pick the input file that describes the game environment
